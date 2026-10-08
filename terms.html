@@ -23,6 +23,12 @@
     color: #3B6D11;
     margin-top: 32px;
   }
+  h3 {
+    color: #1F3D0C;
+    font-size: 17px;
+    margin-top: 20px;
+    margin-bottom: 6px;
+  }
   .updated {
     color: #6b6b6b;
     font-style: italic;
@@ -41,6 +47,13 @@
     margin: 20px 0;
     border-radius: 4px;
   }
+  .note-box {
+    background-color: #fff;
+    border-left: 4px solid #3B6D11;
+    padding: 16px 20px;
+    margin: 20px 0;
+    border-radius: 4px;
+  }
   a {
     color: #D85A30;
   }
@@ -50,17 +63,26 @@
     border-radius: 8px;
     margin-top: 12px;
   }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 15px; }
+  th, td { border: 1px solid #E8E0D0; padding: 9px 10px; text-align: left; vertical-align: top; }
+  th { background: #F3EEE2; }
+  footer { margin-top: 44px; font-size: 14px; color: #777; }
+  footer a { margin-right: 14px; }
+  @media (max-width: 560px) {
+    body { padding: 24px 14px; }
+    table { font-size: 14px; }
+  }
 </style>
 </head>
 <body>
 
 <h1>Uslovi korišćenja</h1>
-<p class="updated">Moj Komšiluk &middot; Poslednje ažuriranje: jul 2026.</p>
+<p class="updated">Moj Komšiluk &middot; Verzija 2.0 &middot; Poslednje ažuriranje: oktobar 2026.</p>
 
-<p>Korišćenjem aplikacije Moj Komšiluk prihvatate sledeća pravila. Ovi Uslovi korišćenja su odvojeni od naše <a href="./index.html">Politike privatnosti</a> i odnose se na pravila ponašanja unutar aplikacije.</p>
+<p>Korišćenjem aplikacije Moj Komšiluk prihvatate sledeća pravila. Ovi Uslovi korišćenja su odvojeni od naše <a href="/privacy.html">Politike privatnosti</a> i odnose se na pravila ponašanja unutar aplikacije.</p>
 
 <h2>1. Ko može da koristi aplikaciju</h2>
-<p>Aplikacija Moj Komšiluk je namenjena isključivo licima starijim od 18 godina. Registracija zahteva unos datuma rođenja radi verifikacije punoletstva. Deca i maloletna lica ne smeju kreirati nalog niti koristiti aplikaciju.</p>
+<p>Aplikacija Moj Komšiluk je namenjena isključivo licima starijim od 18 godina. Registracija zahteva unos datuma rođenja radi verifikacije punoletstva i izričito prihvatanje ovih Uslova. Deca i maloletna lica ne smeju kreirati nalog niti koristiti aplikaciju.</p>
 
 <h2>2. Zabranjeno ponašanje</h2>
 <p>Strogo je zabranjeno, bez ikakvih izuzetaka:</p>
@@ -78,33 +100,115 @@
   <li>Lažno predstavljanje identiteta ili kreiranje lažnih (fake) naloga</li>
   <li>Prodaja ili promocija ilegalnih predmeta, supstanci ili usluga</li>
   <li>Slanje neželjenog (spam) sadržaja ili komercijalnih poruka bez dozvole</li>
+  <li>Objavljivanje tuđih ličnih podataka (adresa, broj telefona, fotografija) bez saglasnosti te osobe</li>
   <li>Bilo kakva radnja koja ugrožava bezbednost drugih korisnika</li>
 </ul>
 
 <h2>3. Prijava neprikladnog sadržaja</h2>
-<p>Svaki korisnik može prijaviti neprikladan sadržaj, objavu ili korisnika direktno unutar aplikacije, korišćenjem dugmeta &bdquo;Prijavi&ldquo;. Prijave se razmatraju u roku od 24 časa od prijema, i odgovarajuće mere se preduzimaju u skladu sa ovim Uslovima korišćenja.</p>
+<p>Svaki korisnik može prijaviti neprikladan sadržaj direktno unutar aplikacije, dugmetom &bdquo;Prijavi&ldquo;. Prijaviti se može <strong>objava, komentar, poruka, poruka u grupi, priča, oglas, događaj, fotografija profila, grupa i korisnik</strong>.</p>
+<p>Prijave se razmatraju u roku od 24 časa od prijema, i odgovarajuće mere se preduzimaju u skladu sa ovim Uslovima korišćenja.</p>
 <p>Nalozi za koje se utvrdi da krše ova pravila, a posebno pravila iz tačke 2, biće trajno obrisani bez prethodne najave.</p>
 
 <h2>4. Postupanje po saznanju o CSAM sadržaju</h2>
-<p>Ukoliko dobijemo saznanje o postojanju CSAM (Child Sexual Abuse Material) sadržaja unutar aplikacije, taj sadržaj i povezani nalog će odmah biti uklonjeni. Slučaj će, gde je to primenjivo i u skladu sa važećim zakonima, biti prijavljen nadležnim organima, uključujući National Center for Missing and Exploited Children (NCMEC) ili odgovarajuće lokalne institucije.</p>
+<p>Ukoliko dobijemo saznanje o postojanju CSAM (Child Sexual Abuse Material) sadržaja unutar aplikacije, taj sadržaj i povezani nalog će odmah biti uklonjeni. Slučaj će, gde je to primenjivo i u skladu sa važećim zakonima, biti prijavljen nadležnim organima, uključujući Ministarstvo unutrašnjih poslova Republike Srbije &ndash; Odeljenje za borbu protiv visokotehnološkog kriminala, Posebno tužilaštvo za visokotehnološki kriminal, i National Center for Missing and Exploited Children (NCMEC) ili odgovarajuće lokalne institucije.</p>
+<p>Dokazi se čuvaju i ne uništavaju pre prijave nadležnim organima.</p>
 
 <h2>5. Blokiranje korisnika</h2>
-<p>Svaki korisnik ima mogućnost da u bilo kom trenutku blokira drugog korisnika direktno u aplikaciji. Blokiranjem se onemogućava dalja komunikacija i vidljivost sadržaja između ta dva korisnika.</p>
+<p>Svaki korisnik ima mogućnost da u bilo kom trenutku blokira drugog korisnika direktno u aplikaciji. Blokiranjem se onemogućava dalja komunikacija i vidljivost sadržaja između ta dva korisnika &ndash; u oba smera. Blokirana osoba ne može da vam pošalje poruku ni da započne novi razgovor sa vama, i ne dobija obaveštenje da je blokirana.</p>
 
 <h2>6. Sadržaj koji kreiraju korisnici</h2>
-<p>Korisnici su isključivo odgovorni za sadržaj koji objavljuju (objave, poruke, fotografije profila). Moj Komšiluk zadržava pravo da ukloni bilo koji sadržaj koji krši ove Uslove korišćenja, bez obaveze prethodnog obaveštenja.</p>
+<p>Korisnici su isključivo odgovorni za sadržaj koji objavljuju (objave, komentari, poruke, priče, oglasi, događaji, fotografije). Moj Komšiluk zadržava pravo da ukloni bilo koji sadržaj koji krši ove Uslove korišćenja.</p>
+<p>Objavljivanjem sadržaja ne prenosite vlasništvo nad njim &ndash; sadržaj ostaje vaš. Dajete nam samo pravo da ga prikažemo u aplikaciji, u obimu koji je potreban da aplikacija radi.</p>
 
-<h2>7. Prestanak korišćenja</h2>
-<p>Zadržavamo pravo da suspendujemo ili trajno obrišemo nalog korisnika koji krši ove Uslove korišćenja, bez prava na naknadu ili obaveštenje unapred, u slučajevima teških povreda (uključujući, ali ne ograničavajući se na, tačku 2 ovih Uslova).</p>
+<h2>7. Kupujem / Prodajem</h2>
+<div class="note-box">
+<p><strong>Moj Komšiluk nije strana u kupoprodaji.</strong> Aplikacija je samo oglasna tabla na kojoj se komšije pronalaze. Ne posredujemo u prodaji, ne primamo i ne prenosimo novac, ne proveravamo robu, ne garantujemo za njeno stanje, poreklo, ispravnost ni vlasništvo, i ne učestvujemo u sporovima između kupca i prodavca.</p>
+<p>Dogovor, plaćanje, predaja robe i svaka eventualna reklamacija su <strong>isključivo između kupca i prodavca</strong>.</p>
+</div>
 
-<h2>8. Izmene uslova</h2>
+<h3>Zabranjeno je oglašavati</h3>
+<ul>
+  <li><strong>oružje</strong>, municiju, eksplozivna sredstva, pirotehniku i njihove delove</li>
+  <li><strong>narkotike</strong> i psihoaktivne supstance, pribor za njihovu upotrebu, kao i supstance koje ih oponašaju</li>
+  <li><strong>lekove</strong> na recept, kao i lekove i medicinska sredstva bez odobrenja za promet</li>
+  <li><strong>alkohol i tobačne proizvode</strong>, elektronske cigarete i tečnosti za njih</li>
+  <li><strong>žive životinje</strong> &ndash; prodaja životinja preko aplikacije nije dozvoljena. Oglas za <em>besplatno udomljavanje</em> je dozvoljen.</li>
+  <li><strong>falsifikate</strong> i piratske kopije (roba sa lažnim znakom, nelicencirani sadržaj)</li>
+  <li><strong>ukradenu robu</strong> i robu nejasnog porekla</li>
+  <li>ljudske organe, krv i telesna tkiva</li>
+  <li>lične podatke, baze podataka i naloge na drugim servisima</li>
+  <li>usluge seksualne prirode</li>
+  <li>dokumente, diplome, ispitne radove, kao i usluge njihovog izdavanja</li>
+  <li>sve čija je prodaja zabranjena ili ograničena zakonom države u kojoj se nalazite</li>
+</ul>
+<p>Oglasi koji krše ova pravila biće uklonjeni, a nalog može biti isključen. Oglas se automatski briše posle <strong>30 dana</strong> od objavljivanja.</p>
+
+<h2>8. Događaji</h2>
+<p><strong>Za događaj odgovara isključivo organizator</strong> &ndash; onaj korisnik koji ga je objavio. Moj Komšiluk ne organizuje događaje, ne proverava njihovu tačnost, ne garantuje da će se održati i ne odgovara za ono što se na njima dogodi, uključujući eventualnu štetu ili povredu.</p>
+<p>Organizator je odgovoran i za pribavljanje svih dozvola koje su po zakonu potrebne za okupljanje, kao i za poštovanje propisa o javnom redu.</p>
+<p>Dolazak na događaj je vaša odluka i vaša odgovornost.</p>
+
+<h2>9. &bdquo;Kontrola&ldquo;</h2>
+<div class="note-box">
+<p>Kategorija &bdquo;Kontrola&ldquo; služi da komšije jedni drugima <strong>neobavezno</strong> javljaju šta su videli. Te objave su <strong>isključivo informativne</strong> i nisu provereni podatak.</p>
+<p>Za tačnost objave odgovara <strong>korisnik koji je objavio</strong>. Moj Komšiluk ne proverava, ne potvrđuje i ne garantuje da je informacija tačna, aktuelna ili potpuna.</p>
+<p>Ova kategorija <strong>ne sme da se koristi</strong> za izbegavanje zakonskih obaveza, ometanje rada službenih lica, ni za objavljivanje fotografija ili ličnih podataka službenih lica. Svaki korisnik je dužan da poštuje propise o saobraćaju i sve druge važeće propise, bez obzira na to šta je u aplikaciji objavljeno.</p>
+</div>
+
+<h2>10. Autorska prava</h2>
+<p>Zabranjeno je objavljivati sadržaj na koji nemate pravo &ndash; tuđe fotografije, tekstove, muziku, video ili robne znake, bez dozvole nosioca prava.</p>
+<p>Ako smatrate da je neki sadržaj u aplikaciji objavljen uz kršenje vaših autorskih ili srodnih prava, pišite nam na <a href="mailto:podrska@mojkomsiluk.com">podrska@mojkomsiluk.com</a> i navedite:</p>
+<ul>
+  <li>koji je sadržaj u pitanju (opis i gde se nalazi u aplikaciji)</li>
+  <li>na kom pravu zasnivate zahtev i dokaz o tome</li>
+  <li>vaše ime i kontakt</li>
+  <li>izjavu da verujete da sadržaj nije objavljen uz vašu dozvolu</li>
+</ul>
+<p>Prijavu razmatramo u roku od <strong>24 časa</strong> i sadržaj za koji se utvrdi da krši prava uklanjamo.</p>
+
+<h2>11. Ograničenja korišćenja</h2>
+<p>Da bi aplikacija ostala upotrebljiva za sve, postoje ograničenja broja radnji u jedinici vremena:</p>
+<table>
+  <tr><th>Radnja</th><th>Ograničenje</th></tr>
+  <tr><td>Objave</td><td>5 na sat, najviše 15 dnevno</td></tr>
+  <tr><td>Komentari</td><td>20 u 10 minuta</td></tr>
+  <tr><td>Poruke</td><td>60 u minutu (zbirno pojedinačne i grupne)</td></tr>
+  <tr><td>Prijave sadržaja</td><td>10 na sat</td></tr>
+  <tr><td>Priče</td><td>20 dnevno</td></tr>
+</table>
+<p>Ograničenja su postavljena visoko i normalno korišćenje ih ne dostiže. Zaobilaženje ograničenja, automatizovano korišćenje aplikacije i pravljenje više naloga radi izbegavanja mera predstavljaju kršenje ovih Uslova.</p>
+
+<h2>12. Isključivanje naloga i pravo na žalbu</h2>
+<p>Zadržavamo pravo da <strong>isključimo ili trajno obrišemo</strong> nalog korisnika koji krši ove Uslove, u slučajevima teških povreda i bez prethodnog obaveštenja (uključujući, ali ne ograničavajući se na, tačku 2).</p>
+<p>Isključen nalog ne može da objavljuje, komentariše, šalje poruke, postavlja priče, oglase i događaje, niti da prijavljuje sadržaj. Može da se prijavi u aplikaciju i da čita &ndash; upravo zato da biste mogli da pročitate obaveštenje i da se žalite.</p>
+
+<h3>Žalba</h3>
+<p>Kada vam uklonimo sadržaj ili isključimo nalog, <strong>dobijate obaveštenje u aplikaciji sa razlogom</strong> i adresom za žalbu.</p>
+<p>Žalbu podnosite na <a href="mailto:podrska@mojkomsiluk.com">podrska@mojkomsiluk.com</a>. Razmatramo je u roku od <strong>7 dana</strong>, odluku obrazlažemo, i ako utvrdimo da je mera bila pogrešna &ndash; nalog i sadržaj vraćamo.</p>
+<p>Isključivanje naloga ne utiče na vaše pravo da obrišete nalog i sve podatke, kako je opisano u <a href="/privacy.html">Politici privatnosti</a>.</p>
+
+<h2>13. Odgovornost</h2>
+<p>Aplikacija se pruža &bdquo;takva kakva je&ldquo;. Moj Komšiluk je posrednik koji omogućava komšijama da se pronađu i dogovore &ndash; ne učestvuje u njihovim dogovorima i ne odgovara za štetu koja iz njih nastane, osim u obimu koji je zakonom propisan kao neotklonjiv.</p>
+<p>Ne garantujemo neprekidnu dostupnost aplikacije.</p>
+
+<h2>14. Izmene uslova</h2>
 <p>Zadržavamo pravo izmene ovih Uslova korišćenja. O značajnim izmenama korisnici će biti obavešteni putem aplikacije. Nastavak korišćenja aplikacije nakon izmena znači prihvatanje novih uslova.</p>
 
-<h2>9. Kontakt i prijava bezbednosnih problema</h2>
+<h2>15. Primenjivo pravo</h2>
+<p>Na ove Uslove primenjuje se pravo Republike Srbije. Za sporove je nadležan sud u Republici Srbiji, što ne utiče na prava koja vam kao potrošaču pripadaju po propisima države u kojoj imate uobičajeno boravište.</p>
+
+<h2>16. Kontakt i prijava bezbednosnih problema</h2>
 <div class="contact">
-<p>Za sva pitanja u vezi sa ovim Uslovima korišćenja, kao i za hitne prijave vezane za bezbednost dece (Child Safety):</p>
-<p><strong>Email:</strong> <a href="mailto:anastasijevicc@gmail.com">anastasijevicc@gmail.com</a></p>
+<p>Za sva pitanja u vezi sa ovim Uslovima korišćenja, za žalbe, prijave kršenja autorskih prava, kao i za hitne prijave vezane za bezbednost dece (Child Safety):</p>
+<p><strong>Email:</strong> <a href="mailto:podrska@mojkomsiluk.com">podrska@mojkomsiluk.com</a></p>
+<p>Na prijave vezane za bezbednost dece i bezbednosne probleme odgovaramo u roku od 24 časa.</p>
 </div>
+
+<footer>
+  <a href="/">Početna</a>
+  <a href="/privacy.html">Politika privatnosti</a>
+  <a href="/delete-account.html">Brisanje naloga</a>
+</footer>
 
 </body>
 </html>
