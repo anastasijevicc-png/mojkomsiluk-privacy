@@ -12,113 +12,332 @@
       color: #1F3D0C;
       line-height: 1.7;
       padding: 24px 16px 64px;
-      max-width: 720px;
+      max-width: 760px;
       margin: 0 auto;
     }
     h1 { font-size: 28px; font-weight: 800; margin-bottom: 6px; }
-    .subtitle { color: #666; font-size: 14px; margin-bottom: 36px; }
-    h2 { font-size: 18px; font-weight: 700; margin: 32px 0 10px; color: #3B6D11; }
+    .subtitle { color: #666; font-size: 14px; margin-bottom: 28px; }
+    h2 { font-size: 19px; font-weight: 700; margin: 34px 0 10px; color: #3B6D11; }
+    h3 { font-size: 16px; font-weight: 700; margin: 20px 0 6px; color: #1F3D0C; }
     p, li { font-size: 15px; color: #333; margin-bottom: 8px; }
-    ul { padding-left: 20px; }
+    ul, ol { padding-left: 22px; }
     a { color: #3B6D11; }
+    strong { color: #1F3D0C; }
+    .uvod {
+      background: #fff; border: 1px solid #E8E0D0; border-radius: 12px;
+      padding: 18px; margin-bottom: 8px;
+    }
     .contact-box {
-      background: #fff;
-      border: 1px solid #E8E0D0;
-      border-radius: 12px;
-      padding: 20px;
-      margin-top: 16px;
+      background: #fff; border: 1px solid #E8E0D0; border-radius: 12px;
+      padding: 20px; margin-top: 16px;
+    }
+    table { width: 100%; border-collapse: collapse; margin: 12px 0 18px; font-size: 14px; }
+    th, td { border: 1px solid #E8E0D0; padding: 9px 10px; text-align: left; vertical-align: top; }
+    th { background: #F3EEE2; font-weight: 700; color: #1F3D0C; }
+    td { color: #333; }
+    .tabela-omot { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .napomena { font-size: 14px; color: #666; font-style: italic; }
+    footer { margin-top: 44px; font-size: 13px; color: #777; }
+    footer a { margin-right: 14px; }
+    @media (max-width: 560px) {
+      body { padding: 20px 14px 56px; }
+      h1 { font-size: 24px; }
+      table { font-size: 13px; }
+      th, td { padding: 7px 8px; }
     }
   </style>
 </head>
 <body>
 
   <h1>Politika privatnosti</h1>
-  <p class="subtitle">Moj Komšiluk &nbsp;·&nbsp; Poslednje ažuriranje: jul 2026.</p>
+  <p class="subtitle">Moj Komšiluk &nbsp;·&nbsp; Verzija 2.0 &nbsp;·&nbsp; Poslednje ažuriranje: oktobar 2026.</p>
 
+  <div class="uvod">
+    <p>
+      Ovde je napisano <strong>koje podatke o tebi obrađujemo, zašto, kome ih prosleđujemo,
+      koliko ih čuvamo i šta sve možeš da zahtevaš od nas</strong>. Pisano je namerno običnim
+      jezikom — ako ti nešto nije jasno, piši nam i objasnićemo.
+    </p>
+  </div>
+
+  <h2>1. Ko obrađuje tvoje podatke</h2>
   <p>
-    Ova politika privatnosti opisuje kako aplikacija <strong>Moj Komšiluk</strong> prikuplja,
-    koristi i štiti vaše lične podatke. Korišćenjem aplikacije prihvatate uslove opisane u ovom dokumentu.
+    Rukovalac podacima je fizičko lice koje razvija i održava aplikaciju Moj Komšiluk,
+    sa kontaktom <a href="mailto:podrska@mojkomsiluk.com">podrska@mojkomsiluk.com</a>.
+  </p>
+  <p>
+    Aplikacija je namenjena korisnicima u Srbiji, Bosni i Hercegovini, Crnoj Gori i
+    Severnoj Makedoniji. Obrada se vrši u skladu sa <strong>Zakonom o zaštiti podataka o
+    ličnosti Republike Srbije</strong> („Službeni glasnik RS", br. 87/2018).
+  </p>
+  <p class="napomena">
+    Za sva pitanja o privatnosti, zahteve za pristup ili brisanje — koristi isti e-mail.
+    Odgovaramo u roku od 30 dana, a najčešće isti ili sledeći dan.
   </p>
 
-  <h2>1. Ko smo mi</h2>
+  <h2>2. Koje podatke obrađujemo</h2>
+  <p>Ovo je potpun spisak. Ne prikupljamo ništa što nije ovde navedeno.</p>
+
+  <h3>Podaci o nalogu</h3>
+  <div class="tabela-omot">
+  <table>
+    <tr><th>Podatak</th><th>Zašto</th><th>Obavezno?</th></tr>
+    <tr><td>E-mail adresa</td><td>prijavljivanje i oporavak lozinke</td><td>obavezno</td></tr>
+    <tr><td>Lozinka</td><td>čuva se isključivo kao kriptografski otisak, nikada u čitljivom obliku</td><td>obavezno</td></tr>
+    <tr><td>Ime (ili nadimak)</td><td>prikazuje se uz tvoje objave i poruke</td><td>obavezno</td></tr>
+    <tr><td>Korisničko ime (username)</td><td>da te komšije mogu naći u pretrazi</td><td>obavezno</td></tr>
+    <tr><td>Datum rođenja</td><td>samo za proveru punoletstva pri registraciji — <strong>ne čuva se</strong></td><td>obavezno</td></tr>
+    <tr><td>Potvrda Uslova korišćenja</td><td>datum i vreme kada si prihvatio Uslove</td><td>obavezno</td></tr>
+    <tr><td>Fotografija profila</td><td>prikazuje se uz tvoje ime</td><td>opciono</td></tr>
+    <tr><td>Opis „O meni"</td><td>prikazuje se na tvom profilu</td><td>opciono</td></tr>
+    <tr><td>Interesovanja</td><td>za funkciju „Srodna duša" — pronalaženje komšija sa sličnim interesovanjima</td><td>opciono</td></tr>
+    <tr><td>Naselje / kraj</td><td>za rang listu komšiluka</td><td>opciono</td></tr>
+    <tr><td>Broj telefona</td><td>samo ako ga sam upišeš na oglas ili događaj, kao kontakt</td><td>opciono</td></tr>
+  </table>
+  </div>
+
+  <h3>Lokacija</h3>
+  <ul>
+    <li>
+      <strong>Samo dok koristiš aplikaciju</strong> (foreground). Nikada u pozadini —
+      aplikacija ni ne traži dozvolu za pozadinsku lokaciju.
+    </li>
+    <li>
+      Koristi se za prikaz objava i događaja u tvojoj blizini, za oznaku „X m od tebe"
+      i za obaveštenje o novoj objavi u krugu od 500 metara.
+    </li>
+    <li>
+      Poslednja poznata pozicija se čuva uz tvoj profil da bismo mogli da izračunamo
+      udaljenost. Možeš je u svakom trenutku ukinuti ukidanjem dozvole u podešavanjima telefona.
+    </li>
+  </ul>
+
+  <h3>Sadržaj koji sam kreiraš</h3>
+  <ul>
+    <li>objave (tekst, fotografija, video, kategorija, lokacija)</li>
+    <li>komentari i odgovori na komentare, lajkovi i reakcije</li>
+    <li>priče — fotografija ili video, tekst preko slike, anketa</li>
+    <li>oglasi na Kupujem/Prodajem (naslov, opis, cena, fotografije, kontakt telefon)</li>
+    <li>događaji (naziv, opis, mesto, vreme, fotografije)</li>
+    <li>poruke u razgovorima jedan na jedan i u grupama: tekst, fotografije, video, glasovne poruke</li>
+    <li>fotografije u galeriji profila, uz komentare i lajkove na njima</li>
+    <li>ocene komšija nakon završene pomoći</li>
+    <li>prijave neprikladnog sadržaja i spisak korisnika koje si blokirao</li>
+  </ul>
+
+  <h3>Tehnički podaci</h3>
+  <ul>
+    <li>
+      <strong>Token za obaveštenja</strong> i naziv platforme (Android ili iOS) — bez toga
+      ti ne možemo poslati obaveštenje.
+    </li>
+    <li>
+      <strong>Podaci o padu aplikacije</strong> — vrsta greške i mesto u kodu, uz tvoj
+      interni identifikator naloga. Ne šalju se ni ime, ni e-mail, ni IP adresa, i
+      <strong>ne snimamo ekran</strong>.
+    </li>
+    <li>
+      <strong>IP adresa</strong> — vide je naši pružaoci usluga u trenutku zahteva
+      (to je neizbežno kod svake internet komunikacije). Mi je ne čuvamo u svojoj bazi.
+    </li>
+  </ul>
+
+  <h2>3. Pravni osnov obrade</h2>
+  <div class="tabela-omot">
+  <table>
+    <tr><th>Šta</th><th>Pravni osnov</th></tr>
+    <tr>
+      <td>nalog, objave, poruke, oglasi, događaji — sve osnovne funkcije</td>
+      <td><strong>izvršenje ugovora</strong> (Uslovi korišćenja koje si prihvatio)</td>
+    </tr>
+    <tr>
+      <td>lokacija, fotografije, mikrofon, obaveštenja</td>
+      <td><strong>tvoja saglasnost</strong> — data kroz dozvolu u telefonu, i možeš je povući u svakom trenutku</td>
+    </tr>
+    <tr>
+      <td>moderacija sadržaja, prijave, isključivanje naloga, zaštita od spama</td>
+      <td><strong>legitimni interes</strong> — bezbednost korisnika i ispunjenje obaveza prema Apple-u i Google-u</td>
+    </tr>
+    <tr>
+      <td>provera punoletstva</td>
+      <td><strong>zakonska obaveza</strong> i zaštita dece</td>
+    </tr>
+  </table>
+  </div>
+
+  <h2>4. Kome prosleđujemo podatke</h2>
   <p>
-    Moj Komšiluk je mobilna aplikacija namenjena povezivanju komšija u lokalnoj zajednici.
-    Kontakt za pitanja o privatnosti: <a href="mailto:anastasijevicc@gmail.com">anastasijevicc@gmail.com</a>.
+    Podatke <strong>ne prodajemo nikome</strong> i ne koristimo ih za reklamiranje.
+    Prosleđujemo ih samo pružaocima usluga bez kojih aplikacija ne može da radi:
   </p>
-
-  <h2>2. Koje podatke prikupljamo</h2>
-  <ul>
-    <li><strong>Email adresa</strong> — koristi se isključivo za kreiranje naloga i prijavljivanje.</li>
-    <li><strong>Ime</strong> — koje korisnik unese, prikazuje se u profilu i objavama.</li>
-    <li><strong>Datum rođenja</strong> — koristi se samo za verifikaciju punoletsva (18+); ne čuva se trajno.</li>
-    <li><strong>GPS lokacija (precizna)</strong> — samo dok koristite aplikaciju (foreground), za prikazivanje objava na mapi. Nikada se ne prikuplja u pozadini.</li>
-    <li><strong>Fotografija profila</strong> — koju korisnik opciono otpremi.</li>
-    <li><strong>Sadržaj objava i poruka</strong> — tekstualne objave i chat poruke koje korisnik kreira.</li>
-  </ul>
-
-  <h2>3. Zašto koristimo ove podatke</h2>
-  <ul>
-    <li>Autentifikacija i bezbednost naloga</li>
-    <li>Prikazivanje objava u vašem komšiluku na mapi</li>
-    <li>Komunikacija između korisnika putem chata</li>
-    <li>Prikaz profila i avatara u aplikaciji</li>
-  </ul>
-
-  <h2>4. Sa kim delimo podatke</h2>
+  <div class="tabela-omot">
+  <table>
+    <tr><th>Obrađivač</th><th>Šta mu ide</th><th>Gde se obrađuje</th></tr>
+    <tr>
+      <td><strong>Supabase</strong><br>(baza, nalozi, fajlovi)</td>
+      <td>svi podaci iz tačke 2</td>
+      <td>Evropska unija</td>
+    </tr>
+    <tr>
+      <td><strong>Expo (EAS)</strong><br>isporuka obaveštenja</td>
+      <td>token za obaveštenja i <strong>tekst samog obaveštenja</strong> (npr. početak poruke)</td>
+      <td>Sjedinjene Američke Države</td>
+    </tr>
+    <tr>
+      <td><strong>Google / Firebase</strong><br>isporuka obaveštenja na Android</td>
+      <td>token uređaja i sadržaj obaveštenja</td>
+      <td>SAD i EU</td>
+    </tr>
+    <tr>
+      <td><strong>Stadia Maps</strong><br>podloga za mapu</td>
+      <td>koordinate dela mape koji gledaš i IP adresa tvog uređaja</td>
+      <td>EU i SAD</td>
+    </tr>
+    <tr>
+      <td><strong>OpenAI</strong><br>automatska provera sadržaja</td>
+      <td><strong>tekst i fotografije objava</strong>, radi otkrivanja nedozvoljenog sadržaja</td>
+      <td>Sjedinjene Američke Države</td>
+    </tr>
+    <tr>
+      <td><strong>Sentry</strong><br>izveštaji o padovima</td>
+      <td>vrsta greške, mesto u kodu, interni identifikator naloga</td>
+      <td>Sjedinjene Američke Države</td>
+    </tr>
+  </table>
+  </div>
   <p>
-    Vaši podaci se čuvaju na platformi <strong>Supabase</strong> (infrastruktura u oblaku, GDPR-usklađena).
-    Ne prodajemo niti delimo vaše podatke s trećim stranama u marketinške svrhe.
-    Supabase može procesirati podatke u skladu sa sopstvenom politikom privatnosti (<a href="https://supabase.com/privacy" target="_blank">supabase.com/privacy</a>).
+    Za prenos u Sjedinjene Američke Države koriste se standardne ugovorne klauzule
+    odnosno odgovarajući mehanizmi predviđeni zakonom.
+  </p>
+  <p class="napomena">
+    Podatke dostavljamo i državnim organima, ali samo na osnovu obrazloženog zahteva
+    u skladu sa zakonom, i u najmanjem obimu koji taj zahtev traži.
   </p>
 
   <h2>5. Koliko dugo čuvamo podatke</h2>
+  <div class="tabela-omot">
+  <table>
+    <tr><th>Podatak</th><th>Rok</th></tr>
+    <tr><td>Nalog i profil</td><td>dok ne obrišeš nalog</td></tr>
+    <tr><td>Datum rođenja</td><td><strong>ne čuva se</strong> — proverava se samo u trenutku registracije</td></tr>
+    <tr><td>Objave</td><td><strong>24 sata</strong> od objavljivanja, pa se brišu automatski</td></tr>
+    <tr><td>Priče</td><td><strong>24 sata</strong>, pa se brišu automatski zajedno sa fotografijom ili videom</td></tr>
+    <tr><td>Oglasi na Kupujem/Prodajem</td><td><strong>30 dana</strong>, pa se brišu sa svim fotografijama. Nedovršen oglas se briše posle 24 sata.</td></tr>
+    <tr><td>Događaji</td><td>dok ih ti ne obrišeš</td></tr>
+    <tr><td>Poruke i razgovori</td><td>dok ih ti ne obrišeš ili dok ne obrišeš nalog — <strong>ne brišu se automatski</strong></td></tr>
+    <tr><td>Fotografije u galeriji profila</td><td>dok ih ti ne obrišeš</td></tr>
+    <tr><td>Prijave sadržaja</td><td>čuvaju se i posle obrade, kao evidencija o postupanju</td></tr>
+    <tr><td>Token za obaveštenja</td><td>briše se pri odjavi</td></tr>
+    <tr><td>Izveštaji o padovima</td><td>90 dana</td></tr>
+  </table>
+  </div>
+
+  <h3>Šta se dešava kad obrišeš nalog</h3>
   <p>
-    Vaši podaci se čuvaju sve dok postoji vaš nalog. Brisanjem naloga brišu se i svi vaši podaci
-    (objave, poruke, fotografija profila).
+    Brisanje je <strong>trajno i odmah</strong> — nalog se ne „gasi", nego se briše.
+    Nestaju: nalog, profil, objave, priče, poruke, oglasi, događaji, fotografije,
+    komentari, lajkovi, ocene, blokade i interesovanja — uključujući
+    <strong>sve fotografije, video i glasovne poruke iz svih skladišta fajlova</strong>.
+    Brisanje ne može da se poništi i posle njega ne držimo rezervnu kopiju tvog naloga.
   </p>
   <p>
-    Objave se posle isteka uklanjaju sa početne strane i sa mape, ali ostaju u
-    <strong>istoriji objava na vašem profilu</strong> dok ih sami ne obrišete. Brisanjem objave
-    trajno se uklanjaju i njen tekst i priložene fotografije i video zapisi.
+    Nalog brišeš u aplikaciji: <strong>Podešavanja → Obriši nalog</strong>, ili zahtevom
+    preko <a href="/delete-account.html">ove strane</a>.
   </p>
-  <p>
-    Izuzetak su objave kategorije <strong>&bdquo;Kontrola&ldquo;</strong>, koje se trajno brišu
-    ubrzo posle isteka i ne čuvaju se u istoriji.
+  <p class="napomena">
+    Jedini izuzetak: poruke koje si poslao drugome ostaju u njegovom razgovoru, isto kao
+    što SMS koji si poslao ostaje u tuđem telefonu.
   </p>
 
-  <h2>6. Vaša prava</h2>
+  <h2>6. Tvoja prava</h2>
+  <p>Po Zakonu o zaštiti podataka o ličnosti imaš pravo na:</p>
   <ul>
-    <li>Pravo na uvid u podatke koje čuvamo o vama</li>
-    <li>Pravo na ispravku netačnih podataka</li>
-    <li>Pravo na brisanje naloga i svih podataka</li>
-    <li>Pravo na prenosivost podataka</li>
+    <li><strong>pristup</strong> — da dobiješ kopiju svih podataka koje imamo o tebi</li>
+    <li><strong>ispravku</strong> — netačne podatke možeš sam izmeniti u aplikaciji, ili nam pisati</li>
+    <li><strong>brisanje</strong> — nalog i svi podaci, kako je opisano iznad</li>
+    <li><strong>prenosivost</strong> — podatke ti možemo poslati u čitljivom formatu (JSON)</li>
+    <li><strong>ograničenje obrade</strong> i <strong>prigovor</strong> na obradu zasnovanu na legitimnom interesu</li>
+    <li><strong>povlačenje saglasnosti</strong> — dozvole za lokaciju, kameru, mikrofon i obaveštenja ukidaš u podešavanjima telefona, bez objašnjenja</li>
   </ul>
-  <p>Za ostvarivanje ovih prava kontaktirajte nas na email ispod.</p>
+  <p>
+    Za svako od ovih prava dovoljan je jedan e-mail na
+    <a href="mailto:podrska@mojkomsiluk.com">podrska@mojkomsiluk.com</a>.
+  </p>
+
+  <h3>Pravo na pritužbu</h3>
+  <p>
+    Ako misliš da tvoje podatke ne obrađujemo u skladu sa zakonom, imaš pravo da se obratiš
+    nadzornom organu:
+  </p>
+  <p>
+    <strong>Poverenik za informacije od javnog značaja i zaštitu podataka o ličnosti</strong><br>
+    Bulevar kralja Aleksandra 15, 11120 Beograd, Srbija<br>
+    <a href="https://www.poverenik.rs">www.poverenik.rs</a> &nbsp;·&nbsp;
+    <a href="mailto:office@poverenik.rs">office@poverenik.rs</a>
+  </p>
+  <p class="napomena">
+    Bićemo zahvalni ako se prvo obratiš nama — najveći broj nedoumica rešimo istog dana.
+  </p>
 
   <h2>7. Bezbednost</h2>
-  <p>
-    Koristimo industry-standard mere zaštite: enkripcija podataka u prenosu (HTTPS/TLS),
-    Row Level Security (RLS) u bazi podataka — svaki korisnik može videti samo sopstvene privatne podatke.
+  <ul>
+    <li>sva komunikacija ide preko šifrovane veze (HTTPS/TLS)</li>
+    <li>u bazi je uključena zaštita na nivou redova (Row Level Security) — korisnik tehnički ne može da pročita tuđe privatne podatke</li>
+    <li>prava pisanja su ograničena po koloni, pa korisnik ne može da promeni ono što ne sme</li>
+    <li>lozinka se čuva isključivo kao kriptografski otisak</li>
+    <li>postoje ograničenja broja objava, poruka, komentara i prijava, kao zaštita od zloupotrebe</li>
+  </ul>
+  <p class="napomena">
+    Nijedan sistem nije apsolutno bezbedan. Ako primetiš bezbednosni problem, piši nam na
+    <a href="mailto:podrska@mojkomsiluk.com">podrska@mojkomsiluk.com</a> — odgovaramo u roku od 24 časa.
   </p>
 
   <h2>8. Deca</h2>
   <p>
-    Aplikacija je namenjena isključivo korisnicima starijim od 18 godina.
-    Registracija zahteva unos datuma rođenja radi verifikacije punoletsva.
-    Ako posumnjamo da je maloletno lice kreiralo nalog, nalog će biti obrisan.
+    Aplikacija je <strong>isključivo za punoletna lica (18+)</strong>. Pri registraciji se
+    traži datum rođenja i nalog se ne može napraviti ako nemaš 18 godina.
   </p>
-
-  <h2>9. Izmene politike</h2>
   <p>
-    Zadržavamo pravo izmene ove politike. O značajnim izmenama obaveštavaćemo korisnike
-    putem aplikacije. Nastavak korišćenja aplikacije nakon izmena znači prihvatanje novih uslova.
+    Ako saznamo da je nalog napravilo maloletno lice, nalog brišemo bez odlaganja.
+    Ako si roditelj i misliš da je tvoje dete napravilo nalog, piši nam i rešićemo to odmah.
+  </p>
+  <p>
+    Imamo <strong>nultu toleranciju</strong> na sadržaj koji seksualno eksploatiše decu.
+    Postupanje u takvim slučajevima opisano je u
+    <a href="/terms.html">Uslovima korišćenja</a>, uključujući prijavu nadležnim organima.
   </p>
 
-  <h2>10. Kontakt</h2>
+  <h2>9. Automatska obrada</h2>
+  <p>
+    Tekst i fotografije objava automatski se proveravaju na nedozvoljen sadržaj.
+    Ako provera sadržaj označi, objava se <strong>sakriva i ide čoveku na pregled</strong> —
+    odluku o trajnom uklanjanju ne donosi mašina sama.
+  </p>
+  <p>
+    Kad ti se sadržaj ukloni ili nalog isključi, dobijaš obaveštenje sa razlogom i
+    adresom na koju možeš da se žališ. Nema automatskog odlučivanja koje bi te
+    pogađalo bez mogućnosti da se obratiš čoveku.
+  </p>
+
+  <h2>10. Izmene ove politike</h2>
+  <p>
+    O svakoj značajnoj izmeni obavestićemo te u aplikaciji, pre nego što izmena stupi na snagu.
+    Datum poslednje izmene je na vrhu strane.
+  </p>
+
   <div class="contact-box">
-    <p>Za sva pitanja vezana za privatnost podataka:</p>
-    <p><strong>Email:</strong> <a href="mailto:anastasijevicc@gmail.com">anastasijevicc@gmail.com</a></p>
+    <h3>Kontakt</h3>
+    <p>
+      Za sva pitanja o privatnosti, zahteve za pristup, ispravku, brisanje ili prenos podataka:<br>
+      <strong><a href="mailto:podrska@mojkomsiluk.com">podrska@mojkomsiluk.com</a></strong>
+    </p>
   </div>
+
+  <footer>
+    <a href="/">Početna</a>
+    <a href="/terms.html">Uslovi korišćenja</a>
+    <a href="/delete-account.html">Brisanje naloga</a>
+  </footer>
 
 </body>
 </html>
