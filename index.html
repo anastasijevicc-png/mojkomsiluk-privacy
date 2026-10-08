@@ -158,6 +158,9 @@
   }
   .cta-row{display:flex; align-items:center; gap:18px; flex-wrap:wrap; margin-bottom:14px;}
   .play-badge img{height:56px; width:auto;}
+  /* Google-ov bedz ima ugradjen beli okvir od oko 10%, Apple-ov ne -
+     zato je nizi, da im se vidljiva visina poklopi. */
+  .store-badge img{height:44px; width:auto; display:block;}
   .ios-note{font-size:14px; color:var(--muted);}
   .ios-note strong{color:var(--ink);}
   .trust-mini{
@@ -397,6 +400,7 @@
     .benefit-strip{grid-template-columns:repeat(2,1fr);}
     .final-cta{margin-left:16px; margin-right:16px; padding:64px 20px;}
     .play-badge img{height:50px;}
+    .store-badge img{height:39px;}
   }
 
   #mnav.open{display:flex !important;}
@@ -462,12 +466,12 @@
             <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>
             Preuzmi aplikaciju
           </a>
-          <a class="btn btn-ghost-dark" style="border-color:var(--line); color:var(--ink);" href="#kako-radi">
-            <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-            Kako funkcioniše
+          <a class="btn btn-ghost-dark" style="border-color:var(--line); color:var(--ink);" href="https://apps.apple.com/rs/app/id6801029899">
+            <svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor"><path d="M16.5 12.6c0-2.1 1.7-3.1 1.8-3.2-1-1.4-2.5-1.6-3-1.7-1.3-.1-2.5.7-3.2.7-.7 0-1.7-.7-2.8-.7-1.4 0-2.7.8-3.4 2.1-1.5 2.5-.4 6.2 1 8.3.7 1 1.5 2.1 2.6 2.1 1 0 1.4-.7 2.7-.7 1.2 0 1.6.7 2.6.6 1.1 0 1.8-1 2.5-2 .8-1.2 1.1-2.3 1.1-2.4-.1 0-2.1-.8-2.1-3.1zM14.3 5.6c.6-.7 1-1.6.9-2.6-.9 0-1.9.6-2.5 1.3-.5.6-1 1.6-.9 2.5 1 .1 1.9-.5 2.5-1.2z"/></svg>
+            App Store
           </a>
         </div>
-        <p class="ios-note" style="margin-bottom:8px;">Dostupno na Google Play · <strong>iOS uskoro</strong></p>
+        <p class="ios-note" style="margin-bottom:8px;">Dostupno na <strong>Google Play</strong> i <strong>App Store</strong></p>
 
         <div class="trust-row">
           <div class="avatar-stack">
@@ -703,6 +707,9 @@
       <a class="play-badge" href="https://play.google.com/store/apps/details?id=com.mojkomsiluk.app" aria-label="Preuzmi na Google Play">
         <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Preuzmi na Google Play">
       </a>
+      <a class="store-badge" href="https://apps.apple.com/rs/app/id6801029899" aria-label="Preuzmi na App Store">
+        <img src="/assets/app-store-badge.svg" alt="Preuzmi na App Store">
+      </a>
     </div>
   </section>
 
@@ -725,6 +732,7 @@
           <li><a href="#sta-nudi">Šta nudi</a></li>
           <li><a href="#bezbednost">Bezbednost</a></li>
           <li><a href="https://play.google.com/store/apps/details?id=com.mojkomsiluk.app">Preuzmi na Google Play</a></li>
+          <li><a href="https://apps.apple.com/rs/app/id6801029899">Preuzmi na App Store</a></li>
         </ul>
       </div>
       <div class="footer-col">
