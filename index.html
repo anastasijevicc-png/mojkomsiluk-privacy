@@ -157,9 +157,21 @@
     font-size:18px; color:var(--muted); max-width:46ch; margin-bottom:32px;
   }
   .cta-row{display:flex; align-items:center; gap:18px; flex-wrap:wrap; margin-bottom:14px;}
-  .play-badge img{height:56px; width:auto;}
-  /* Google-ov bedz ima ugradjen beli okvir od oko 10%, Apple-ov ne -
-     zato je nizi, da im se vidljiva visina poklopi. */
+  /* ── Bedževi prodavnica ──
+     Oba su ZVANIČNA grafika proizvođača, hostovana lokalno:
+       Apple  developer.apple.com/assets/elements/badges/download-on-the-app-store.svg
+       Google play.google.com/intl/en_us/badges/.../en_badge_web_generic.png
+
+     ISTA VIDLJIVA VISINA, RAZLIČITA VISINA SLIKE — i to nije greška.
+     Google-ov PNG ima ugrađenu prozirnu marginu sa sve četiri strane: platno
+     je 646×250, a sam bedž 564×168 — vidljivo je 67,2% visine slike.
+     Apple-ov SVG je bedž bez ijednog piksela margine (119,66×40).
+     Da im je CSS visina ista, Apple bi izgledao osetno veći.
+
+     Računica za vidljivih 44px:
+       Apple   44px               (bez margine)
+       Google  44 / 0,672 ≈ 65px  (65 × 0,672 = 43,7px vidljivo) */
+  .play-badge img{height:65px; width:auto; display:block;}
   .store-badge img{height:44px; width:auto; display:block;}
   .ios-note{font-size:14px; color:var(--muted);}
   .ios-note strong{color:var(--ink);}
@@ -399,8 +411,9 @@
     .feature-grid{grid-template-columns:1fr;}
     .benefit-strip{grid-template-columns:repeat(2,1fr);}
     .final-cta{margin-left:16px; margin-right:16px; padding:64px 20px;}
-    .play-badge img{height:50px;}
-    .store-badge img{height:39px;}
+    /* Isti odnos kao gore: vidljivih 38px -> Google 38/0,672 ≈ 57px. */
+    .play-badge img{height:57px;}
+    .store-badge img{height:38px;}
   }
 
   #mnav.open{display:flex !important;}
@@ -705,10 +718,15 @@
     <p>Preuzmi Moj Komšiluk i vidi šta se dešava tačno tamo gde živiš.</p>
     <div class="cta-row">
       <a class="play-badge" href="https://play.google.com/store/apps/details?id=com.mojkomsiluk.app" aria-label="Preuzmi na Google Play">
-        <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Preuzmi na Google Play">
+        <!-- Bedž se servira SA OVOG sajta, ne sa play.google.com.
+             Hotlink bi na svako učitavanje poslao IP i User-Agent posetioca
+             Google-u — a ovo je sajt koji nosi Politiku privatnosti, u kojoj
+             Google stoji kao obrađivač SAMO za isporuku obaveštenja. Lokalna
+             kopija ne otvara tok podataka koji Politika ne pominje. -->
+        <img src="/assets/google-play-badge.png" alt="Preuzmi na Google Play" width="646" height="250">
       </a>
       <a class="store-badge" href="https://apps.apple.com/rs/app/id6801029899" aria-label="Preuzmi na App Store">
-        <img src="/assets/app-store-badge.svg" alt="Preuzmi na App Store">
+        <img src="/assets/app-store-badge.svg" alt="Preuzmi na App Store" width="120" height="40">
       </a>
     </div>
   </section>
