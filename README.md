@@ -16,20 +16,20 @@ umesto u pregledaču, ovde stoje dva fajla:
 `.nojekyll` u korenu je **obavezan**: bez njega Jekyll preskače foldere koji
 počinju tačkom, pa `.well-known/` nikad ne stigne na sajt.
 
-### Dve vrednosti koje treba popuniti
+### Vrednosti su upisane 24.10.2026.
 
-Oba fajla su trenutno sa **zamenskim vrednostima** i dok se ne popune,
-verifikacija ne prolazi (linkovi i dalje rade — otvaraju `404.html`).
+| gde | vrednost | odakle |
+|---|---|---|
+| `assetlinks.json` | otisak **App signing key**-a (`D6:BE:…`) | Play Console → *App integrity* → *App signing* |
+| `assetlinks.json` | otisak **Upload key**-a (`BC:60:…`) | isto mesto |
+| `apple-app-site-association` | `N8353YL692.com.mojkomsiluk.app` | Apple Team ID |
 
-1. `assetlinks.json` → `sha256_cert_fingerprints`
-   Play Console → *Test and release* → *App integrity* → *App signing*.
-   Prepisati **oba** otiska: *App signing key certificate* (njime Google
-   potpisuje ono što korisnik preuzme) i *Upload key certificate* (njime su
-   potpisani EAS `preview` build-ovi). Format je heks sa dvotačkama.
+Oba otiska su potrebna, ne jedan: Google potpisuje svojim ključem ono što
+korisnik preuzme iz Play-a, a EAS `preview` build-ovi nose upload ključ. Bez
+drugog otiska App Links **ne radi u internom testu**, pa izgleda kao da je sve
+pokvareno.
 
-2. `apple-app-site-association` → `appIDs`
-   `<APPLE_TEAM_ID>.com.mojkomsiluk.app`. Team ID stoji na
-   developer.apple.com → *Membership*, ili ga ispiše `eas credentials`.
+Menjaju se samo ako se promeni ključ za potpisivanje ili Apple nalog.
 
 ### Provera posle objave
 

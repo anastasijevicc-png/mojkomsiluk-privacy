@@ -5,8 +5,8 @@
       "namespace": "android_app",
       "package_name": "com.mojkomsiluk.app",
       "sha256_cert_fingerprints": [
-        "ZAMENI_OVO_SHA256_OTISKOM_PLAY_APP_SIGNING_KLJUCA",
-        "ZAMENI_OVO_SHA256_OTISKOM_UPLOAD_KLJUCA"
+        "D6:BE:1F:57:00:31:8D:E1:B4:5D:5C:B5:B4:9C:E6:AA:C3:0C:1F:02:3F:F1:ED:80:F5:E5:F4:1A:4A:36:52:5C",
+        "BC:60:57:AA:29:22:63:61:A8:2A:1B:42:6C:32:26:DF:5B:55:E8:CB:27:6B:32:85:30:AF:7F:4A:E1:13:09:A3"
       ]
     }
   }

@@ -2,7 +2,7 @@
   "applinks": {
     "details": [
       {
-        "appIDs": ["ZAMENITEAMID.com.mojkomsiluk.app"],
+        "appIDs": ["N8353YL692.com.mojkomsiluk.app"],
         "components": [
           { "/": "/post/*",    "comment": "Objava" },
           { "/": "/listing/*", "comment": "Oglas" },
