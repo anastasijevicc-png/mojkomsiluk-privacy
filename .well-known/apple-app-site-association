@@ -1,0 +1,14 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["ZAMENITEAMID.com.mojkomsiluk.app"],
+        "components": [
+          { "/": "/post/*",    "comment": "Objava" },
+          { "/": "/listing/*", "comment": "Oglas" },
+          { "/": "/event/*",   "comment": "Dogadjaj" }
+        ]
+      }
+    ]
+  }
+}
