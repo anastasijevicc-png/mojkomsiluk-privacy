@@ -190,13 +190,28 @@
       <td>SAD i EU</td>
     </tr>
     <tr>
+      <td><strong>Apple</strong><br>isporuka obaveštenja na iPhone</td>
+      <td>token uređaja i sadržaj obaveštenja</td>
+      <td>SAD</td>
+    </tr>
+    <tr>
+      <td><strong>OpenStreetMap Nominatim</strong><br>naziv mesta iz lokacije</td>
+      <td>tačne koordinate i IP adresa, kad sam tražiš mesto preko trenutne lokacije (profil, oglas)</td>
+      <td>OpenStreetMap Foundation</td>
+    </tr>
+    <tr>
+      <td><strong>unpkg</strong><br>skripte za prikaz mape</td>
+      <td>IP adresa, pri otvaranju mape</td>
+      <td>mreža servera u više država</td>
+    </tr>
+    <tr>
       <td><strong>Stadia Maps</strong><br>podloga za mapu</td>
       <td>koordinate dela mape koji gledaš i IP adresa tvog uređaja</td>
       <td>EU i SAD</td>
     </tr>
     <tr>
       <td><strong>OpenAI</strong><br>automatska provera sadržaja</td>
-      <td><strong>tekst i fotografije objava i oglasa, tekst komentara na objavama, kao i ime, opis i fotografija profila</strong>, radi otkrivanja nedozvoljenog sadržaja. Kad verzija 1.3.0 aplikacije postane obavezna, i slike u galeriji profila i komentari na njima, a sve navedeno samo od korisnika koji su dali saglasnost (<a href="#najavljena-izmena">vidi odeljak 10</a>).</td>
+      <td><strong>tekst i fotografije objava, tekst oglasa i fotografije oglasa koje su tada otpremljene, tekst komentara na objavama, kao i ime, opis i fotografija profila</strong>, radi otkrivanja nedozvoljenog sadržaja. Kad verzija 1.3.0 aplikacije postane obavezna, i slike u galeriji profila i komentari na njima, a sve navedeno samo od korisnika koji su dali saglasnost (<a href="#najavljena-izmena">vidi odeljak 10</a>).</td>
       <td>Sjedinjene Američke Države</td>
     </tr>
     <tr>
@@ -232,11 +247,11 @@
     <tr><th>Podatak</th><th>Rok</th></tr>
     <tr><td>Nalog i profil</td><td>dok ne obrišeš nalog</td></tr>
     <tr><td>Datum rođenja</td><td><strong>ne čuva se</strong> — proverava se samo u trenutku registracije</td></tr>
-    <tr><td>Objave</td><td>od <strong>2 do 24 sata</strong>, zavisno od kategorije (pomoć 2 h, druženje 4 h, obaveštenje 8 h, prodaja i kontrola 24 h), pa se brišu automatski</td></tr>
+    <tr><td>Objave</td><td>od <strong>2 do 24 sata</strong>, zavisno od kategorije (pomoć 2 h, druženje i kontrola 4 h, obaveštenje 8 h, prodaja 24 h), pa se brišu automatski. Kontrola nestaje i ranije, kad je tri korisnika označe kao prošlu</td></tr>
     <tr><td>Priče</td><td>nestaju iz trake posle <strong>24 sata</strong>, ali ti ostaju u „Uspomenama“. Fotografija ili video se čuvaju <strong>30 dana</strong>, pa se brišu automatski.</td></tr>
     <tr><td>Oglasi na Kupujem/Prodajem</td><td><strong>30 dana</strong>, pa se brišu sa svim fotografijama. Nedovršen oglas se briše posle 24 sata.</td></tr>
     <tr><td>Događaji</td><td>dok ih ti ne obrišeš</td></tr>
-    <tr><td>Poruke i razgovori</td><td>dok ih ti ne obrišeš ili dok ne obrišeš nalog — <strong>ne brišu se automatski</strong>. Kad obrišeš poruku ili razgovor, odmah nestaje iz aplikacije; priložena fotografija, video ili glasovna poruka se uklanja iz skladišta odmah ili redovnim čišćenjem, po pravilu u roku od dve nedelje.</td></tr>
+    <tr><td>Poruke i razgovori</td><td>dok ih ti ne obrišeš ili dok ne obrišeš nalog — <strong>ne brišu se automatski</strong>, osim razgovora započetog iz objave u starijim verzijama aplikacije, koji nestaje kad objava istekne. Kad obrišeš poruku ili razgovor, odmah nestaje iz aplikacije; priložena fotografija, video ili glasovna poruka se uklanja iz skladišta odmah ili redovnim čišćenjem, po pravilu u roku od dve nedelje.</td></tr>
     <tr><td>Fotografije u galeriji profila</td><td>dok ih ti ne obrišeš</td></tr>
     <tr><td>Prijave sadržaja</td><td>čuvaju se i posle obrade, kao evidencija o postupanju. Kad verzija 1.3.0 aplikacije postane obavezna, sadržaj pod prijavom čuva se i posle brisanja naloga, u rokovima iz odeljka 5.</td></tr>
     <tr><td>Token za obaveštenja</td><td>briše se pri odjavi</td></tr>
@@ -282,7 +297,8 @@
   </p>
   <p class="napomena">
     Nalog obrisan u aplikaciji briše se odmah. Zahtev poslat mejlom izvršavamo u roku od 7 dana, a
-    izuzetno kasnije kad to nalažu prijava nadležnima ili postupak pred njima. Evidenciju o prijavi
+    izuzetno kasnije kad to nalažu prijava nadležnima ili postupak pred njima, a dok verzija 1.3.0
+    aplikacije ne postane obavezna i kad je nalog pod prijavom ili isključen, dok se slučaj ne reši. Evidenciju o prijavi
     nadležnima, sa e-mail adresom naloga, čuvamo najmanje 5 godina.
   </p>
 
@@ -346,8 +362,8 @@
 
   <h2>9. Automatska obrada</h2>
   <p>
-    Tekst i fotografije objava i oglasa, tekst komentara na objavama, kao i ime, opis i
-    fotografija profila automatski se proveravaju na nedozvoljen sadržaj.
+    Tekst i fotografije objava, tekst oglasa, tekst komentara na objavama, kao i ime, opis i
+    fotografija profila automatski se proveravaju na nedozvoljen sadržaj. Fotografije oglasa ne prolaze uvek ovu proveru.
     Ako provera sadržaj označi, on se <strong>sakriva i ide čoveku na pregled</strong> —
     odluku o trajnom uklanjanju ne donosi mašina sama.
   </p>
@@ -361,7 +377,7 @@
     poruke se ne proveravaju automatski, a video se ne proverava ni u objavama.
   </p>
   <p>
-    Kad ti se sadržaj ukloni ili nalog isključi, dobijaš obaveštenje sa razlogom i
+    Kad ti se objava ili komentar sakriju ili nalog isključi, dobijaš obaveštenje sa razlogom i
     adresom na koju možeš da se žališ. Nema automatskog odlučivanja koje bi te
     pogađalo bez mogućnosti da se obratiš čoveku.
   </p>
@@ -377,7 +393,7 @@
     <li>
       <strong>Verzija 2.3.2, novembar 2026.:</strong> ispravljen je opis poruka posle brisanja naloga, dodat
       je izuzetak za zahtev poslat mejlom (odeljak 5), rok za uklanjanje priloga je „po pravilu u roku od dve
-      nedelje", dodata je napomena o fajlovima pod prijavom i o evidenciji prijava nadležnima (odeljak 5), navedeni su rok od 7 dana za brisanje naloga i rezervne kopije baze, a najavljena izmena pomerena je na obaveznu verziju 1.3.0.
+      nedelje", dodata je napomena o fajlovima pod prijavom i o evidenciji prijava nadležnima (odeljak 5), navedeni su rok od 7 dana za brisanje naloga i rezervne kopije baze, ispravljeni su rok za kontrolu i opis provere oglasa i obaveštenja, dodati su Apple, OpenStreetMap Nominatim i unpkg, a najavljena izmena pomerena je na obaveznu verziju 1.3.0.
     </li>
     <li>
       <strong>Stupa na snagu kad verzija 1.3.0 aplikacije postane obavezna, posle obaveštenja u aplikaciji:</strong> posle
