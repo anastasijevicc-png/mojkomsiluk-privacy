@@ -50,7 +50,7 @@
 <body>
 
   <h1>Politika privatnosti</h1>
-  <p class="subtitle">Moj Komšiluk &nbsp;·&nbsp; Verzija 2.3.2 &nbsp;·&nbsp; Poslednje ažuriranje: novembar 2026. &nbsp;·&nbsp; <a href="#najavljena-izmena">Najavljena izmena, najranije od 12. novembra 2026.</a></p>
+  <p class="subtitle">Moj Komšiluk &nbsp;·&nbsp; Verzija 2.3.2 &nbsp;·&nbsp; Poslednje ažuriranje: novembar 2026. &nbsp;·&nbsp; <a href="#najavljena-izmena">Najavljena izmena, sa verzijom 1.3.0 aplikacije</a></p>
 
   <div class="uvod">
     <p>
@@ -195,7 +195,7 @@
     </tr>
     <tr>
       <td><strong>OpenAI</strong><br>automatska provera sadržaja</td>
-      <td><strong>tekst i fotografije objava i oglasa, tekst komentara na objavama, kao i ime, opis i fotografija profila</strong>, radi otkrivanja nedozvoljenog sadržaja. Najranije od 12. novembra 2026. i slike u galeriji profila i komentari na njima (<a href="#najavljena-izmena">vidi odeljak 10</a>).</td>
+      <td><strong>tekst i fotografije objava i oglasa, tekst komentara na objavama, kao i ime, opis i fotografija profila</strong>, radi otkrivanja nedozvoljenog sadržaja. Kad verzija 1.3.0 aplikacije postane obavezna, i slike u galeriji profila i komentari na njima, samo od korisnika koji su dali saglasnost (<a href="#najavljena-izmena">vidi odeljak 10</a>).</td>
       <td>Sjedinjene Američke Države</td>
     </tr>
     <tr>
@@ -237,7 +237,7 @@
     <tr><td>Događaji</td><td>dok ih ti ne obrišeš</td></tr>
     <tr><td>Poruke i razgovori</td><td>dok ih ti ne obrišeš ili dok ne obrišeš nalog — <strong>ne brišu se automatski</strong>. Kad obrišeš poruku ili razgovor, odmah nestaje iz aplikacije; priložena fotografija, video ili glasovna poruka se uklanja iz skladišta redovnim čišćenjem, najkasnije u roku od nedelju dana.</td></tr>
     <tr><td>Fotografije u galeriji profila</td><td>dok ih ti ne obrišeš</td></tr>
-    <tr><td>Prijave sadržaja</td><td>čuvaju se i posle obrade, kao evidencija o postupanju. Sadržaj pod otvorenom prijavom čuva se i posle brisanja naloga, do kraja obrade prijave (odeljak 5).</td></tr>
+    <tr><td>Prijave sadržaja</td><td>čuvaju se i posle obrade, kao evidencija o postupanju. Od verzije 1.3.0 aplikacije sadržaj pod prijavom čuva se i posle brisanja naloga, u rokovima iz odeljka 5.</td></tr>
     <tr><td>Token za obaveštenja</td><td>briše se pri odjavi</td></tr>
     <tr><td>Izveštaji o padovima</td><td>90 dana</td></tr>
   </table>
@@ -256,16 +256,22 @@
     preko <a href="/delete-account.html">ove strane</a>.
   </p>
   <p class="napomena">
-    Izuzetak: poruke koje si poslao drugome ostaju u njegovom razgovoru, isto kao
-    što SMS koji si poslao ostaje u tuđem telefonu.
+    Brišu se i poruke koje si poslao, pa nestaju i kod onih kojima si ih poslao. Razgovor jedan na
+    jedan nestaje obema stranama, i kad nalog obriše tvoj sagovornik. U grupama nestaju poruke
+    obrisanog naloga.
   </p>
   <p class="napomena">
-    Izuzetak, od 12. novembra 2026.: sadržaj na koji se odnosi otvorena prijava, ili prijava protiv
-    autora čiji je nalog isključen, sa pripadajućim fotografijama ili videom
-    i podacima profila ako je prijavljen profil,
-    čuvamo izdvojeno i nedostupno drugim korisnicima, <strong>samo do kraja obrade prijave</strong>,
-    a kod sumnje na zloupotrebu dece dok se slučaj ne prijavi nadležnima ili dok to nalažu nadležni
-    organi. Nalog se i tada briše odmah. Isto važi i za tvoj sadržaj pod prijavom kad svoj nalog obriše
+    Izuzetak, od verzije 1.3.0 aplikacije, posle obaveštenja u aplikaciji: sadržaj na koji se odnosi
+    otvorena prijava, ili prijava protiv autora čiji je nalog isključen, sa pripadajućim fotografijama
+    ili videom i podacima profila ako je prijavljen profil,
+    čuvamo izdvojeno i nedostupno drugim korisnicima, <strong>samo do kraja obrade prijave</strong>.
+    Ako je prijava već zatvorena, a autor isključen, čuvamo ga najduže 90 dana od brisanja naloga.
+    Kod sumnje na zloupotrebu dece čuvamo ga dok se slučaj ne prijavi nadležnima ili dok to nalažu
+    nadležni organi. Kod te sumnje i kod isključenog naloga čuvamo u istom roku i e-mail adresu
+    prijavljenog naloga. Automatsko upućivanje videa na pregled se ovde ne računa kao prijava.
+    Nalog obrisan u aplikaciji se i tada briše odmah. Zahtev poslat mejlom izuzetno ne izvršavamo
+    odmah ni u redovnom roku kad to nalažu prijava nadležnima ili postupak pred njima.
+    Isto važi i za tvoj sadržaj pod prijavom kad svoj nalog obriše
     neko drugi, na primer onaj ko je prijavio ili onaj kome si poslao poruku.
   </p>
 
@@ -358,23 +364,34 @@
   <h3 id="istorija-izmena">Istorija izmena</h3>
   <ul>
     <li>
-      <strong>Verzija 2.3.2, važi od 12. novembra 2026.:</strong> posle brisanja naloga sadržaj na koji
-      se odnosi otvorena prijava, ili prijava protiv autora čiji je nalog isključen, čuva se izdvojeno, samo
-      do kraja obrade prijave, a kod sumnje na zloupotrebu dece dok se slučaj ne prijavi nadležnima ili
-      dok to nalažu nadležni organi (odeljak 5).
+      <strong>Verzija 2.3.2, novembar 2026.:</strong> ispravljen je opis poruka posle brisanja naloga, dodat
+      je izuzetak za zahtev poslat mejlom (odeljak 5), a najavljena izmena pomerena je na verziju 1.3.0.
+    </li>
+    <li>
+      <strong>Stupa na snagu sa verzijom 1.3.0 aplikacije, posle obaveštenja u aplikaciji:</strong> posle
+      brisanja naloga čuva se izdvojeno sadržaj pod prijavom, u rokovima iz odeljka 5.
     </li>
   </ul>
 
-  <h3 id="najavljena-izmena">Najavljena izmena — najranije od 12. novembra 2026.</h3>
-  <p>Izmena stupa na snagu kad se provera uključi, a ne pre tog dana. Tada:</p>
+  <h3 id="najavljena-izmena">Najavljena izmena — sa verzijom 1.3.0 aplikacije</h3>
+  <p>
+    Izmena stupa na snagu sa verzijom 1.3.0 aplikacije, posle obaveštenja u aplikaciji, a ne pre toga.
+    U ranijoj najavi je pisalo „najranije 12. novembra 2026."; to je sada pomereno na ovu verziju. Tada:
+  </p>
   <ul>
     <li>
-      <strong>Slike u galeriji profila i komentari na njima</strong> automatski se proveravaju na
-      nedozvoljen sadržaj, isto kao objave. Sadržaj se u tu svrhu šalje usluzi OpenAI, u Sjedinjene
-      Američke Države.
+      <strong>Sadržaj pod prijavom</strong> čuva se i posle brisanja naloga, kako je opisano u odeljku 5.
     </li>
     <li>
-      Provera jednom obuhvata i <strong>slike i komentare koji su već u galeriji</strong>, a ne samo nove.
+      <strong>Slike u galeriji profila i komentari na njima</strong> automatski se proveravaju na
+      nedozvoljen sadržaj, isto kao objave. Provera se uključuje tek kad verzija 1.3.0 postane obavezna
+      za sve korisnike. Sadržaj se u tu svrhu šalje usluzi OpenAI, u Sjedinjene Američke Države, samo
+      od korisnika koji su za to dali izričitu saglasnost u aplikaciji.
+    </li>
+    <li>
+      Provera jednom obuhvata i <strong>slike i komentare koji su već u galeriji</strong>, a ne samo nove,
+      kod korisnika koji su dali saglasnost. Slike ostalih korisnika se ne šalju na proveru i ne sakrivaju
+      se, a bez saglasnosti nova slika ili komentar u galeriji ne mogu da se objave.
     </li>
     <li>
       Označen sadržaj se <strong>sakriva i ide čoveku na pregled</strong>. Ti ga i dalje vidiš, uz
@@ -395,7 +412,7 @@
       vidiš i možeš da ih obrišeš.
     </li>
   </ul>
-  <p>Ako se s tim ne slažeš, nalog možeš da obrišeš pre tog datuma (odeljak 5).</p>
+  <p>Ako se s tim ne slažeš, nalog možeš da obrišeš pre nego što izmena stupi na snagu (odeljak 5).</p>
 
   <div class="contact-box">
     <h3>Kontakt</h3>
