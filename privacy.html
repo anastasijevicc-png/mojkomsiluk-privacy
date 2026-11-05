@@ -296,6 +296,11 @@
     neko drugi, na primer onaj ko je prijavio ili onaj kome si poslao poruku.
   </p>
   <p class="napomena">
+    Evidencija saglasnosti za automatsku proveru: čuvamo datum davanja, odbijanja i povlačenja saglasnosti, uz
+    identifikator naloga, bez imena i drugih podataka, kao dokaz da je saglasnost postojala. Čuva se dok
+    nalog postoji, a posle brisanja naloga najduže 5 godina i nedelju dana od te odluke (čišćenje ide jednom nedeljno).
+  </p>
+  <p class="napomena">
     Nalog obrisan u aplikaciji briše se odmah. Zahtev poslat mejlom izvršavamo u roku od 7 dana, a
     izuzetno kasnije kad to nalažu prijava nadležnima ili postupak pred njima, a dok verzija 1.3.0
     aplikacije ne postane obavezna i kad je nalog povezan sa prijavom ili merom moderacije, dok se slučaj ne reši. Evidenciju o prijavi
@@ -391,7 +396,7 @@
   <h3 id="istorija-izmena">Istorija izmena</h3>
   <ul>
     <li>
-      <strong>Verzija 2.3.3, novembar 2026.:</strong> usklađeno je šta bez saglasnosti ne može da se objavi, dodata je evidencija saglasnosti sa rokom čuvanja (najavljena izmena).
+      <strong>Verzija 2.3.3, novembar 2026.:</strong> usklađeno je šta bez saglasnosti ne može da se objavi, dodata je evidencija saglasnosti sa rokom čuvanja (odeljak 5).
     </li>
     <li>
       <strong>Verzija 2.3.2, novembar 2026.:</strong> ispravljen je opis poruka posle brisanja naloga, dodat
@@ -424,11 +429,6 @@
       u aplikaciji</strong>: objave, oglasi, komentari, profil i galerija. Bez saglasnosti ne mogu da se
       objave objave, oglasi, slike, komentari, opis i slika profila. Ime i korisničko ime bez saglasnosti
       proverava samo filter reči u aplikaciji, bez automatske provere.
-    </li>
-    <li>
-      <strong>Evidencija saglasnosti:</strong> čuvamo datum davanja, odbijanja i povlačenja saglasnosti, uz
-      identifikator naloga, bez imena i drugih podataka, kao dokaz da je saglasnost postojala. Čuva se dok
-      nalog postoji, a posle brisanja naloga najduže 5 godina od te odluke.
     </li>
     <li>
       Provera jednom obuhvata i <strong>slike i komentare koji su već u galeriji</strong>, a ne samo nove,
