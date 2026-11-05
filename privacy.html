@@ -50,7 +50,7 @@
 <body>
 
   <h1>Politika privatnosti</h1>
-  <p class="subtitle">Moj Komšiluk &nbsp;·&nbsp; Verzija 2.3.2 &nbsp;·&nbsp; Poslednje ažuriranje: novembar 2026. &nbsp;·&nbsp; <a href="#najavljena-izmena">Najavljena izmena, kad verzija 1.3.0 aplikacije postane obavezna</a></p>
+  <p class="subtitle">Moj Komšiluk &nbsp;·&nbsp; Verzija 2.3.3 &nbsp;·&nbsp; Poslednje ažuriranje: novembar 2026. &nbsp;·&nbsp; <a href="#najavljena-izmena">Najavljena izmena, kad verzija 1.3.0 aplikacije postane obavezna</a></p>
 
   <div class="uvod">
     <p>
@@ -391,6 +391,9 @@
   <h3 id="istorija-izmena">Istorija izmena</h3>
   <ul>
     <li>
+      <strong>Verzija 2.3.3, novembar 2026.:</strong> usklađeno je šta bez saglasnosti ne može da se objavi, dodata je evidencija saglasnosti sa rokom čuvanja (najavljena izmena).
+    </li>
+    <li>
       <strong>Verzija 2.3.2, novembar 2026.:</strong> ispravljen je opis poruka posle brisanja naloga, dodat
       je izuzetak za zahtev poslat mejlom (odeljak 5), rok za uklanjanje priloga je „po pravilu u roku od dve
       nedelje", dodata je napomena o fajlovima pod prijavom i o evidenciji prijava nadležnima (odeljak 5), navedeni su rok od 7 dana za brisanje naloga i rezervne kopije baze, ispravljeni su rok za kontrolu i opis provere oglasa i obaveštenja, dodati su Apple, OpenStreetMap Nominatim i unpkg, a najavljena izmena pomerena je na obaveznu verziju 1.3.0.
@@ -418,8 +421,14 @@
     </li>
     <li>
       <strong>Na automatsku proveru ide samo sadržaj korisnika koji su za to dali izričitu saglasnost
-      u aplikaciji</strong>: objave, oglasi, komentari, profil i galerija. Bez saglasnosti novi sadržaj
-      koji ide na proveru ne može da se objavi.
+      u aplikaciji</strong>: objave, oglasi, komentari, profil i galerija. Bez saglasnosti ne mogu da se
+      objave objave, oglasi, slike, komentari, opis i slika profila. Ime i korisničko ime bez saglasnosti
+      proverava samo filter reči u aplikaciji, bez automatske provere.
+    </li>
+    <li>
+      <strong>Evidencija saglasnosti:</strong> čuvamo datum davanja, odbijanja i povlačenja saglasnosti, uz
+      identifikator naloga, bez imena i drugih podataka, kao dokaz da je saglasnost postojala. Čuva se dok
+      nalog postoji, a posle brisanja naloga najduže 5 godina od te odluke.
     </li>
     <li>
       Provera jednom obuhvata i <strong>slike i komentare koji su već u galeriji</strong>, a ne samo nove,
