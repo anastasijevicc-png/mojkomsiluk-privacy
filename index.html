@@ -271,20 +271,12 @@ img{max-width:100%;display:block}
 .p-copy{display:flex;flex-direction:column;gap:20px;min-width:0}
 .p-copy h2{font-size:clamp(36px,5vw,64px);font-weight:800}
 .p-copy p{color:var(--muted);font-size:19px;max-width:30em}
-.seg{display:inline-flex;align-self:flex-start;padding:5px;border-radius:999px;background:var(--surface);border:1px solid var(--line)}
-.seg button{font:inherit;font-weight:600;font-size:15px;border:0;background:none;color:var(--muted);padding:11px 20px;border-radius:999px;cursor:pointer;transition:background .3s,color .3s}
-.seg button[aria-pressed="true"]{background:var(--brand-hi);color:#0B1009}
-.checks{display:grid;gap:12px}
-.checks div{display:flex;gap:12px;font-size:16px}
-.checks svg{flex-shrink:0;margin-top:3px;color:var(--brand-hi)}
-.demo{position:relative;aspect-ratio:1;width:100%;max-width:540px;justify-self:center;border-radius:40px;overflow:hidden;background:#151A14;border:1px solid var(--line);box-shadow:0 40px 90px rgba(0,0,0,.5)}
-.demo svg.bg{position:absolute;inset:0;width:100%;height:100%}
-.zone{position:absolute;left:50%;top:48%;width:60%;aspect-ratio:1;border-radius:50%;transform:translate(-50%,-50%) scale(.05);opacity:0;background:radial-gradient(circle,rgba(143,209,79,.35),rgba(143,209,79,.12) 62%,transparent 72%);border:2px dashed var(--prodaja);transition:transform 1s cubic-bezier(.2,.8,.2,1),opacity .6s}
-.demo.approx .zone{transform:translate(-50%,-50%) scale(1);opacity:1}
-.demo .pin{opacity:1;animation:none;left:56%;top:43%;transition:opacity .5s,transform .6s}
-.demo.approx .pin.exact{opacity:0;transform:scale(.4)}
-.demo .lbl{position:absolute;left:16px;right:16px;bottom:16px;border-radius:20px;padding:14px 16px;background:rgba(22,30,18,.95);border:1px solid var(--line);font-weight:600}
-.demo .lbl small{display:block;color:var(--muted);font-weight:500;font-size:13.5px;margin-top:2px}
+/* Do 20261119b (zamućivanje lokacije) ovde nema mape sa zamućenom tačkom: puna verzija je u nacrt/posle-19b.html (van git-a). */
+.p-card{width:100%;max-width:540px;justify-self:center;border-radius:40px;background:var(--surface);border:1px solid var(--line);box-shadow:0 40px 90px rgba(0,0,0,.5);padding:clamp(24px,4vw,40px);display:grid;gap:24px}
+.p-item{display:flex;gap:16px;align-items:flex-start}
+.p-item .ic{width:46px;height:46px;border-radius:15px;display:grid;place-items:center;flex-shrink:0;background:rgba(143,196,90,.12);color:var(--brand-hi)}
+.p-item b{display:block;font-family:var(--f-display);font-weight:600;font-size:19px;line-height:1.2;margin-bottom:4px}
+.p-item span{display:block;color:var(--muted);font-size:15px;line-height:1.5}
 
 /* poziv */
 .cta{padding-block:70px 110px}
@@ -413,29 +405,16 @@ footer a:hover{opacity:1;color:var(--brand-hi)}
 <section class="priv" id="privatnost">
   <div class="wrap p-grid">
     <div class="p-copy rise">
-      <span class="eyebrow">Privatnost</span>
-      <h2>Komšije znaju da si blizu. Ne znaju gde spavaš.</h2>
-      <p>Kad prodaješ, daješ oglas, zoveš na druženje ili javljaš obaveštenje, drugi vide krug od oko 100 metara, a ne tvoja vrata.</p>
-      <div class="seg" role="group" aria-label="Prikaz lokacije na mapi">
-        <button type="button" id="bExact" aria-pressed="false">Tačna tačka</button>
-        <button type="button" id="bApprox" aria-pressed="true">Približno mesto</button>
-      </div>
-      <div class="checks">
-        <div><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg><span>Objave se automatski proveravaju, a svako može da prijavi neprimeren sadržaj.</span></div>
-        <div><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg><span>Kad blokiraš nekog, ne vidite jedno drugom objave, priče, slike ni poruke.</span></div>
-        <div><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg><span>Bez reklama. Tvoji podaci se ne prodaju. Nalog brišeš kad hoćeš.</span></div>
-      </div>
+      <span class="eyebrow">Privatnost i bezbednost</span>
+      <h2>Bez reklama. Sa jasnim pravilima.</h2>
+      <p>Komšiluk je prijatan kad svako zna šta sme. Ovo važi za svaki nalog.</p>
     </div>
-    <div class="demo approx" id="demo" role="img" aria-label="Mapa: kupci vide približno mesto, krug od oko 100 metara">
-      <svg class="bg" viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-        <path d="M-20 300 C 80 250 160 330 260 280 S 380 200 440 230" stroke="#0E1A22" stroke-width="46" fill="none"/>
-        <rect x="30" y="40" width="110" height="80" rx="12" fill="#18241A"/><rect x="250" y="70" width="120" height="70" rx="12" fill="#18241A"/>
-        <g stroke="#2A3326" stroke-width="12" stroke-linecap="round" fill="none"><path d="M-20 170 L420 150"/><path d="M130 -20 L160 420"/><path d="M290 -20 L260 420"/></g>
-        <g stroke="#232B21" stroke-width="5" fill="none"><path d="M-20 70 L420 50"/><path d="M210 -20 L215 420"/><path d="M-20 230 L420 215"/></g>
-      </svg>
-      <div class="zone"></div>
-      <div class="pin exact" style="--c:var(--prodaja)"><span class="halo" style="animation:none;opacity:0"></span><span class="body"></span></div>
-      <div class="lbl" id="dLbl">Prodaja · Dečji bicikl, 20"<small>Kupci vide približno mesto, oko 100 m.</small></div>
+    <div class="p-card rise">
+        <div class="p-item"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 5 6v5c0 4.5 3 8 7 10 4-2 7-5.5 7-10V6z"/><path d="m9 12 2 2 4-4"/></svg></span><div><b>Provera objava</b><span>Objave, oglasi i komentari se automatski proveravaju odmah posle objavljivanja, a sporni se sklanjaju.</span></div></div>
+        <div class="p-item"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 21V4M5 4h11l-2 4 2 4H5"/></svg></span><div><b>Prijava</b><span>Svako može da prijavi neprimeren sadržaj.</span></div></div>
+        <div class="p-item"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="m6 6 12 12"/></svg></span><div><b>Blokiranje</b><span>Kad blokiraš nekog, ne vidite jedno drugom objave, priče, slike ni poruke.</span></div></div>
+        <div class="p-item"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3"/></svg></span><div><b>Brisanje naloga</b><span>Nalog brišeš kad hoćeš, u aplikaciji ili preko stranice <a href="/delete-account.html">Brisanje naloga</a>.</span></div></div>
+        <div class="p-item"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg></span><div><b>Bez reklama</b><span>Nema reklama, a tvoji podaci se ne prodaju.</span></div></div>
     </div>
   </div>
 </section>
@@ -470,7 +449,7 @@ footer a:hover{opacity:1;color:var(--brand-hi)}
   <div class="wrap"><div class="faq-in">
     <h2 class="rise">Česta pitanja</h2>
     <details open><summary>Da li je aplikacija besplatna?<span class="pl" aria-hidden="true">+</span></summary><p>Da. Preuzimanje i korišćenje su besplatni, bez reklama.</p></details>
-    <details><summary>Da li komšije vide gde stanujem?<span class="pl" aria-hidden="true">+</span></summary><p>Aplikacija ne prikazuje tvoju adresu. Za prodaju, oglase, druženje i obaveštenja vidi se samo približno mesto, oko 100 m. Tačna tačka se vidi kod pomoći, kontrole i događaja, jer tada ljudi treba da znaju gde da dođu.</p></details>
+    <details><summary>Da li komšije vide gde stanujem?<span class="pl" aria-hidden="true">+</span></summary><p>Aplikacija ne traži tvoju adresu. Lokacija objave nije obavezna: biraš trenutnu lokaciju ili tačku na mapi. Objava sa lokacijom pokazuje tu tačku na mapi, a komšije vide koliko su udaljeni od nje. Ako ne želiš da se vidi gde si, objavi bez lokacije ili izaberi drugu tačku na mapi.</p></details>
     <details><summary>Kako se proveravaju objave?<span class="pl" aria-hidden="true">+</span></summary><p>Objave, oglasi i komentari se automatski proveravaju odmah posle objavljivanja, a sporni se sklanjaju. Svako može da prijavi neprimeren sadržaj ili da blokira osobu.</p></details>
     <details><summary>Kako da obrišem nalog?<span class="pl" aria-hidden="true">+</span></summary><p>U aplikaciji: Profil, pa Podešavanja, pa Obriši nalog. Može i preko stranice <a href="/delete-account.html">Brisanje naloga</a>. Brišu se tvoj nalog, objave, slike i poruke koje si poslao; izuzeci su opisani u <a href="/privacy.html">Politici privatnosti</a>.</p></details>
     <details><summary>Gde radi aplikacija?<span class="pl" aria-hidden="true">+</span></summary><p>Za sada u Srbiji, na iPhone-u i Android telefonima.</p></details>
@@ -553,8 +532,8 @@ document.getElementById('ticker').innerHTML=one+one;
 /* ---------- vrste objava ---------- */
 const K=[
  {c:'var(--pomoc)',h:'Pomoć',p:'Nošenje, pozajmica alata, pas koji je pobegao. Komšije u blizini dobiju obaveštenje čim objava prođe proveru.',n:'Obaveštenje u krugu od 500 m',i:'<path d="M12 20s-7-4.4-9.2-8.6C1.2 8.2 3 4.5 6.6 4.5c2.1 0 3.5 1.2 5.4 3.3 1.9-2.1 3.3-3.3 5.4-3.3 3.6 0 5.4 3.7 3.8 6.9C19 15.6 12 20 12 20z"/>'},
- {c:'var(--prodaja)',h:'Prodaja',p:'Stvari koje ti ne trebaju, a nekome iz kraja trebaju. Preuzimanje na par minuta od kuće.',n:'Vidi se približno mesto',i:'<path d="M5 8h14l-1.3 12H6.3zM9 8V6a3 3 0 0 1 6 0v2"/>'},
- {c:'var(--druzenje)',h:'Druženje',p:'Kafa, šetnja, basket, igraonica za decu. Nađi društvo bez grupa od 500 ljudi.',n:'Vidi se približno mesto',i:'<path d="M12 3l1.8 4.6L18 9l-4.2 1.4L12 15l-1.8-4.6L6 9l4.2-1.4z"/><path d="M18 14l.8 2 2 .8-2 .8-.8 2-.8-2-2-.8 2-.8z"/>'},
+ {c:'var(--prodaja)',h:'Prodaja',p:'Stvari koje ti ne trebaju, a nekome iz kraja trebaju. Preuzimanje na par minuta od kuće.',n:'Kupac ti se javi porukom',i:'<path d="M5 8h14l-1.3 12H6.3zM9 8V6a3 3 0 0 1 6 0v2"/>'},
+ {c:'var(--druzenje)',h:'Druženje',p:'Kafa, šetnja, basket, igraonica za decu. Nađi društvo bez grupa od 500 ljudi.',n:'Komšije ti se jave porukom',i:'<path d="M12 3l1.8 4.6L18 9l-4.2 1.4L12 15l-1.8-4.6L6 9l4.2-1.4z"/><path d="M18 14l.8 2 2 .8-2 .8-.8 2-.8-2-2-.8 2-.8z"/>'},
  {c:'var(--obav)',h:'Obaveštenje',p:'Nestala voda, radovi na ulici, izgubljen ključ. Sve što kraj treba da zna.',n:'Na Početnoj i na mapi',i:'<path d="M4 10v4h3l6 4V6L7 10zM16 9a4 4 0 0 1 0 6M7 14l1.5 5h2.5l-1-5"/>'},
  {c:'var(--kontrola)',h:'Kontrola',p:'Javi gde je kontrola na putu. Drugi potvrđuju da li je još tu, a dojava sama nestaje.',n:'Nestaje najkasnije za 4 sata',i:'<path d="M12 3 5 6v5c0 4.5 3 8 7 10 4-2 7-5.5 7-10V6z"/>'}
 ];
@@ -596,13 +575,6 @@ const steps=[...document.querySelectorAll('.step')], views=[...document.querySel
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){const i=+e.target.dataset.i;steps.forEach((s,j)=>s.classList.toggle('on',j===i));views.forEach((v,j)=>v.classList.toggle('on',j===i));}}),{rootMargin:'-45% 0px -45% 0px'});
 steps.forEach(s=>io.observe(s));
 
-/* ---------- privatnost ---------- */
-const demo=document.getElementById('demo'),bE=document.getElementById('bExact'),bA=document.getElementById('bApprox'),lbl=document.getElementById('dLbl');
-function mode(a){demo.classList.toggle('approx',a);bA.setAttribute('aria-pressed',a);bE.setAttribute('aria-pressed',!a);
- lbl.innerHTML=a?'Prodaja · Dečji bicikl, 20"<small>Kupci vide približno mesto, oko 100 m.</small>':'Pomoć · Nošenje frižidera<small>Za pomoć, kontrolu i događaje vidi se tačna tačka, da ljudi znaju gde da dođu.</small>';
- demo.setAttribute('aria-label',a?'Mapa: kupci vide približno mesto, krug od oko 100 metara':'Mapa: tačna tačka objave za pomoć');}
-let auto=null; if(!reduce){let a=true;auto=setInterval(()=>{a=!a;mode(a);},3800);}
-[bE,bA].forEach(b=>b.addEventListener('click',()=>{if(auto){clearInterval(auto);auto=null;}mode(b===bA);}));
 })();
 </script>
 </body>
