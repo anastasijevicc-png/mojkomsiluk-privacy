@@ -1,779 +1,609 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="sr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Moj Komšiluk — Tvoj komšiluk, na dohvat ruke</title>
-<meta name="description" content="Pomoć, prodaja, druženje i upoznavanje sa ljudima iz tvog kraja. Moj Komšiluk povezuje komšije u tvom naselju — bez guranja kroz grupe stranaca.">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Moj Komšiluk: aplikacija za tvoj kraj</title>
+<meta name="description" content="Moj Komšiluk povezuje ljude iz tvog kraja: pomoć, prodaja, druženje, obaveštenja i kontrola na putu. Besplatno i bez reklama.">
+<meta name="theme-color" content="#2E4A24">
+<link rel="canonical" href="https://mojkomsiluk.com/">
 
-<!-- Open Graph -->
 <meta property="og:type" content="website">
-<meta property="og:title" content="Moj Komšiluk — Tvoj komšiluk, na dohvat ruke">
-<meta property="og:description" content="Pomoć, prodaja, druženje i upoznavanje sa ljudima iz tvog kraja — sve na jednom mestu, blizu tebe.">
-<meta property="og:url" content="https://mojkomsiluk.com">
-<meta property="og:image" content="https://mojkomsiluk.com/assets/og-image.png">
-<meta property="og:locale" content="sr_RS">
 <meta property="og:site_name" content="Moj Komšiluk">
-
-<!-- Twitter -->
+<meta property="og:title" content="Moj Komšiluk: aplikacija za tvoj kraj">
+<meta property="og:description" content="Pomoć, prodaja, druženje, obaveštenja i kontrola na putu, sa ljudima iz tvoje ulice. Besplatno i bez reklama.">
+<meta property="og:url" content="https://mojkomsiluk.com/">
+<meta property="og:image" content="https://mojkomsiluk.com/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Logo aplikacije Moj Komšiluk">
+<meta property="og:locale" content="sr_RS">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Moj Komšiluk — Tvoj komšiluk, na dohvat ruke">
-<meta name="twitter:description" content="Pomoć, prodaja, druženje i upoznavanje sa ljudima iz tvog kraja.">
+<meta name="twitter:title" content="Moj Komšiluk: aplikacija za tvoj kraj">
+<meta name="twitter:description" content="Pomoć, prodaja, druženje, obaveštenja i kontrola na putu, sa ljudima iz tvoje ulice.">
 <meta name="twitter:image" content="https://mojkomsiluk.com/assets/og-image.png">
 
-<meta name="theme-color" content="#1E4D3B">
-<link rel="icon" type="image/png" href="/assets/favicon.png">
-<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "MobileApplication",
-  "name": "Moj Komšiluk",
-  "operatingSystem": "ANDROID",
-  "applicationCategory": "SocialNetworkingApplication",
-  "url": "https://mojkomsiluk.com",
-  "offers": {
-    "@type": "Offer",
-    "price": "0",
-    "priceCurrency": "RSD"
-  },
-  "author": {
-    "@type": "Organization",
-    "name": "Moj Komšiluk"
-  }
-}
-</script>
-
+<!-- Fontovi se serviraju sa ovog sajta (fonts/, licenca fonts/OFL.txt), ne sa Google-a: posetilac ne šalje IP adresu nikome osim nama. -->
+<link rel="preload" href="/fonts/bricolage-grotesque-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
 <style>
-  :root{
-    --cream:#FAF6EE;
-    --cream-dim:#F1EBDC;
-    --forest:#1E4D3B;
-    --forest-dark:#153729;
-    --leaf:#3C9D5E;
-    --leaf-bright:#4CB56F;
-    --terracotta:#C4633B;
-    --ink:#1C2622;
-    --muted:#6B7268;
-    --line:#E4DDCB;
-    --line-dark:#2A5A46;
-    --radius:18px;
-  }
+/* Bricolage Grotesque i Inter: varijabilni woff2 (isti fajlovi koje je davao Google Fonts), podskupovi latin i latin-ext */
+@font-face{font-family:"Bricolage Grotesque";font-style:normal;font-weight:600 800;font-display:swap;src:url(/fonts/bricolage-grotesque-latin-ext.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C4,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"Bricolage Grotesque";font-style:normal;font-weight:600 800;font-display:swap;src:url(/fonts/bricolage-grotesque-latin.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Inter";font-style:normal;font-weight:400 700;font-display:swap;src:url(/fonts/inter-latin-ext.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C4,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"Inter";font-style:normal;font-weight:400 700;font-display:swap;src:url(/fonts/inter-latin.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+/* Layout: noćni komšiluk. Heroj = telefon sa živom mapom (pinovi kao u aplikaciji) → traka objava → pet vrsta objava → telefon koji menja ekrane dok skroluješ → privatnost na delu → poziv. Jedan namerni tamni svet, kao aplikacija. */
+:root{
+  --bg:#0B1009; --bg2:#10170D; --surface:#161E12; --surface2:#1F2919; --line:#27321F;
+  --ink:#EEF3E8; --muted:#A3AE99; --brand:#3B6D11; --brand-hi:#8FC45A; --olive-a:#2E4A24; --olive-b:#4F7342;
+  --pomoc:#F2676B; --prodaja:#8FD14F; --druzenje:#5AA9F5; --obav:#F2B544; --kontrola:#8195EC; --policija:#E5484D;
+  --f-display:"Bricolage Grotesque","Inter",system-ui,sans-serif;
+  --f-body:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
+  color-scheme:dark;
+  --logo-circ:url(/assets/logo-krug.webp);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+/* clip (ne hidden): zarotirana traka izlazi ~1 px van ekrana; clip ne pravi kontejner za skrol, pa sticky telefon i dalje radi */
+main{overflow-x:clip}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--olive-a)}
+a{color:inherit}
+h1,h2,h3{font-family:var(--f-display);margin:0;line-height:1;letter-spacing:-.025em;text-wrap:balance}
+p{margin:0}
+img{max-width:100%;display:block}
+.wrap{max-width:1200px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+:focus-visible{outline:3px solid var(--obav);outline-offset:3px;border-radius:8px}
+.eyebrow{font-weight:700;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--brand-hi)}
 
-  *{box-sizing:border-box; margin:0; padding:0;}
-  html{scroll-behavior:smooth;}
-  body{
-    font-family:'Inter', sans-serif;
-    color:var(--ink);
-    background:var(--cream);
-    line-height:1.5;
-    -webkit-font-smoothing:antialiased;
-  }
-  h1,h2,h3,.display{
-    font-family:'Bricolage Grotesque', sans-serif;
-    font-weight:700;
-    letter-spacing:-0.02em;
-    line-height:1.08;
-  }
-  a{color:inherit; text-decoration:none;}
-  img,svg{display:block; max-width:100%;}
-  ul{list-style:none;}
-  .wrap{max-width:1120px; margin:0 auto; padding:0 24px;}
-  section{position:relative;}
-  .eyebrow{
-    font-family:'Bricolage Grotesque', sans-serif;
-    font-weight:600;
-    font-size:13px;
-    letter-spacing:0.14em;
-    text-transform:uppercase;
-    color:var(--leaf);
-  }
-  .eyebrow.on-dark{color:#8FE0AA;}
-  :focus-visible{outline:3px solid var(--terracotta); outline-offset:3px;}
+/* zaglavlje */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:25;background:linear-gradient(180deg,var(--olive-a),var(--olive-b));box-shadow:0 8px 30px rgba(0,0,0,.35)}
+.top .wrap{display:flex;align-items:center;gap:16px;padding-block:12px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:#fff}
+.brand img{width:30px;height:30px}
+.brand b{font-family:var(--f-display);font-weight:800;font-size:21px;letter-spacing:-.01em}
+.top nav{margin-left:auto;display:flex;gap:4px;align-items:center}
+.top nav a{text-decoration:none;color:#fff;font-weight:500;font-size:15px;padding:8px 13px;border-radius:999px;transition:background .2s}
+.top nav a:hover{background:rgba(255,255,255,.14)}
+.top nav .dl{background:#fff;color:var(--olive-a);font-weight:700}
+.top nav .dl:hover{background:#E8F3DC}
+@media (max-width:780px){.top nav a:not(.dl){display:none}}
 
-  /* ---------- Header ---------- */
-  .site-header{
-    position:sticky; top:0; z-index:50;
-    background:var(--forest);
-  }
-  .header-inner{
-    display:flex; align-items:center; justify-content:space-between;
-    padding:14px 24px; max-width:1200px; margin:0 auto;
-  }
-  .logo{
-    display:flex; align-items:center; gap:12px;
-    font-family:'Bricolage Grotesque', sans-serif;
-    font-weight:700; font-size:19px; color:#fff;
-  }
-  .logo .logo-badge{
-    width:44px; height:44px; border-radius:50%; background:#fff;
-    display:flex; align-items:center; justify-content:center; flex-shrink:0;
-  }
-  .logo .logo-badge svg{width:24px; height:24px;}
-  .logo-text{display:flex; flex-direction:column; line-height:1.25;}
-  .logo-text .sub{font-family:'Inter',sans-serif; font-weight:500; font-size:12px; color:#A9D2BC;}
-  nav.main-nav{display:flex; gap:28px;}
-  nav.main-nav a{
-    font-size:14.5px; font-weight:500; color:#E5F0EA;
-    opacity:0.9; transition:opacity .15s;
-  }
-  nav.main-nav a:hover{opacity:1;}
-  .header-right{display:flex; align-items:center; gap:12px;}
-  .btn{
-    display:inline-flex; align-items:center; justify-content:center; gap:8px;
-    padding:12px 22px; border-radius:100px;
-    font-weight:600; font-size:15px;
-    border:none; cursor:pointer; transition:transform .15s ease, box-shadow .15s ease;
-  }
-  .btn-primary{background:var(--leaf); color:#fff; box-shadow:0 2px 0 rgba(30,77,59,0.25);}
-  .btn-primary:hover{transform:translateY(-1px); box-shadow:0 4px 10px rgba(60,157,94,0.35);}
-  .btn-ghost-dark{background:transparent; border:1.5px solid rgba(255,255,255,0.35); color:#fff;}
-  .btn-ghost-dark:hover{background:rgba(255,255,255,0.08);}
-  .btn-sm{padding:10px 18px; font-size:14px;}
-  .header-cta{display:none;}
-  #nav-toggle{display:none;}
-  .burger{display:none; flex-direction:column; gap:5px; cursor:pointer; background:none; border:none; padding:4px;}
-  .burger span{width:24px; height:2px; background:#fff; display:block;}
+/* heroj */
+.hero{position:relative;overflow:hidden;isolation:isolate}
+.hero::before{content:"";position:absolute;inset:-20% -10% auto;height:120%;z-index:-1;background:radial-gradient(50% 45% at 72% 38%,rgba(79,115,66,.55),transparent 70%),radial-gradient(40% 40% at 10% 10%,rgba(59,109,17,.35),transparent 70%)}
+.hero-grid{position:absolute;inset:0;z-index:-1;opacity:.35;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:56px 56px;mask-image:radial-gradient(70% 70% at 60% 40%,#000,transparent)}
+.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center;padding-block:64px 96px}
+@media (max-width:960px){.hero .wrap{grid-template-columns:1fr;padding-block:40px 72px;gap:56px}}
+.hero-copy{display:flex;flex-direction:column;gap:24px;min-width:0}
+.live{align-self:flex-start;display:inline-flex;align-items:center;gap:10px;height:36px;padding:0 16px;border-radius:999px;background:rgba(143,196,90,.12);border:1px solid rgba(143,196,90,.3);color:#D9F0C2;font-weight:600;font-size:14px}
+.live i{width:8px;height:8px;border-radius:50%;background:var(--brand-hi);animation:ping 1.8s infinite}
+@keyframes ping{0%{box-shadow:0 0 0 0 rgba(143,196,90,.7)}70%,100%{box-shadow:0 0 0 10px rgba(143,196,90,0)}}
+.hero h1{font-size:clamp(46px,7.4vw,104px);font-weight:800}
+.rot{display:inline-grid;height:1.02em;overflow:hidden;vertical-align:bottom}
+.rot span{grid-area:1/1;transform:translateY(108%);transition:transform .75s cubic-bezier(.75,0,.2,1);background:linear-gradient(90deg,var(--brand-hi),#D7F5B5);-webkit-background-clip:text;background-clip:text;color:transparent;padding-right:.05em}
+.rot span.on{transform:none}.rot span.out{transform:translateY(-108%)}
+.lead{font-size:clamp(17px,1.6vw,21px);color:var(--muted);max-width:31em}
+.lead b{color:var(--ink);font-weight:600}
+.stores{display:flex;flex-wrap:wrap;gap:12px}
+.store{display:inline-flex;align-items:center;gap:12px;height:62px;padding:0 22px;border-radius:18px;background:#fff;color:#0B1009;text-decoration:none;transition:transform .3s cubic-bezier(.2,.8,.2,1),box-shadow .3s}
+.store:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(143,196,90,.25)}
+.store small{display:block;font-size:11px;opacity:.7;line-height:1}
+.store strong{display:block;font-size:18px;line-height:1.25}
+.facts{display:flex;flex-wrap:wrap;gap:8px 20px;color:var(--muted);font-size:14px}
+.facts span{display:inline-flex;align-items:center;gap:8px}
+.facts svg{color:var(--brand-hi)}
 
-  /* ---------- Hero ---------- */
-  .hero{
-    padding:76px 0 0;
-    overflow:hidden;
-  }
-  .hero-grid{
-    display:grid; grid-template-columns:0.86fr 1.14fr; gap:40px; align-items:center;
-  }
-  .hero h1{
-    font-size:clamp(34px, 5vw, 58px);
-    margin:16px 0 20px;
-  }
-  .hero h1 em{color:var(--leaf); font-style:normal;}
-  .hero p.lede{
-    font-size:18px; color:var(--muted); max-width:46ch; margin-bottom:32px;
-  }
-  .cta-row{display:flex; align-items:center; gap:18px; flex-wrap:wrap; margin-bottom:14px;}
-  /* ── Bedževi prodavnica ──
-     Oba su ZVANIČNA grafika proizvođača, hostovana lokalno:
-       Apple  developer.apple.com/assets/elements/badges/download-on-the-app-store.svg
-       Google play.google.com/intl/en_us/badges/.../en_badge_web_generic.png
+/* telefon */
+.stage{position:relative;justify-self:center;perspective:1400px;width:min(380px,86vw)}
+.device{position:relative;width:100%;aspect-ratio:9/19;border-radius:56px;background:#05080a;padding:12px;box-shadow:0 60px 120px rgba(0,0,0,.6),0 0 0 2px #2b3526 inset,0 0 80px rgba(143,196,90,.15);transform-style:preserve-3d;transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+.device::before{content:"";position:absolute;top:20px;left:50%;width:30%;height:28px;margin-left:-15%;border-radius:20px;background:#000;z-index:9}
+.scr{position:absolute;inset:12px;border-radius:46px;overflow:hidden;background:var(--bg2);display:flex;flex-direction:column}
+.app-top{flex-shrink:0;padding:52px 16px 12px;background:linear-gradient(180deg,var(--olive-a),var(--olive-b));color:#fff;display:flex;align-items:center;gap:8px;font-family:var(--f-display);font-weight:800;font-size:19px}
+.app-top img{width:22px;height:22px}
+.app-top .sp{margin-left:auto;display:flex;gap:10px;align-items:center;font-family:var(--f-body);font-weight:600;font-size:13px}
+.tabbar{flex-shrink:0;height:58px;display:flex;justify-content:space-around;align-items:center;border-top:1px solid var(--line);background:var(--bg2)}
+.tabbar span{width:22px;height:22px;border-radius:7px;background:#3A4433}
+.tabbar span.on{background:var(--brand-hi)}
+.tabbar span.me{border-radius:50%;background:var(--logo-circ) center/cover;box-shadow:0 0 0 2px var(--brand-hi)}
 
-     ISTA VIDLJIVA VISINA, RAZLIČITA VISINA SLIKE — i to nije greška.
-     Google-ov PNG ima ugrađenu prozirnu marginu sa sve četiri strane: platno
-     je 646×250, a sam bedž 564×168 — vidljivo je 67,2% visine slike.
-     Apple-ov SVG je bedž bez ijednog piksela margine (119,66×40).
-     Da im je CSS visina ista, Apple bi izgledao osetno veći.
+/* mapa u telefonu */
+.map{position:relative;flex:1;overflow:hidden;background:#151A14}
+.map svg.bg{position:absolute;inset:0;width:100%;height:100%}
+.chips-row{position:absolute;top:10px;left:10px;right:10px;display:flex;gap:6px;z-index:3}
+.chips-row span{height:28px;padding:0 11px;border-radius:999px;background:rgba(31,41,25,.92);font-size:12px;font-weight:600;display:flex;align-items:center;color:var(--ink)}
+.chips-row span.on{background:var(--brand);color:#fff}
+.pin{position:absolute;width:44px;height:44px;margin:-22px 0 0 -22px;z-index:2;opacity:0;animation:drop .7s cubic-bezier(.3,1.6,.5,1) forwards;animation-delay:var(--d)}
+.pin .halo{position:absolute;inset:-26px;border-radius:50%;background:var(--c);opacity:.22;animation:halo 2.6s ease-out infinite;animation-delay:var(--d)}
+.pin .body{position:relative;display:block;width:44px;height:44px;border-radius:50%;background:var(--logo-circ) center/cover;box-shadow:0 0 0 3px #0B1009,0 6px 14px rgba(0,0,0,.5)}
+.pin.help .body{box-shadow:0 0 0 3px #fff,0 0 0 6px var(--pomoc),0 6px 14px rgba(0,0,0,.5)}
+.pin.help::after{content:"";position:absolute;left:50%;bottom:-12px;margin-left:-8px;border:8px solid transparent;border-top:12px solid var(--pomoc)}
+.pin.patrol .body{background:var(--kontrola);display:grid;place-items:center;animation:patrol 1.4s steps(1) infinite;box-shadow:0 0 0 3px #0B1009,0 0 0 6px currentColor}
+.pin.patrol{color:var(--kontrola)}
+.pin.patrol .halo{animation:halo 2.6s ease-out infinite,patrolc 1.4s steps(1) infinite}
+@keyframes patrol{0%{background:var(--kontrola)}50%{background:var(--policija)}}
+@keyframes patrolc{0%{background:var(--kontrola)}50%{background:var(--policija)}}
+@keyframes drop{from{opacity:0;transform:translateY(-40px) scale(.6)}to{opacity:1;transform:none}}
+@keyframes halo{0%{transform:scale(.35);opacity:.45}100%{transform:scale(1);opacity:0}}
+.me-dot{position:absolute;width:16px;height:16px;margin:-8px;border-radius:50%;background:#4DA3FF;box-shadow:0 0 0 4px #fff;z-index:2}
+.me-dot::after{content:"";position:absolute;inset:-30px;border-radius:50%;background:rgba(77,163,255,.18);animation:halo 3s ease-out infinite}
+.sheet{position:absolute;left:10px;right:10px;bottom:10px;z-index:4;border-radius:18px;background:rgba(22,30,18,.96);padding:10px;display:flex;gap:10px;align-items:center;box-shadow:0 10px 30px rgba(0,0,0,.5);animation:sheet 7.5s infinite}
+@keyframes sheet{0%,8%{transform:translateY(130%)}14%,86%{transform:none}92%,100%{transform:translateY(130%)}}
+.sheet .th{width:54px;height:54px;border-radius:12px;flex-shrink:0;overflow:hidden}
+.sheet b{display:block;font-size:13.5px}
+.sheet small{display:flex;align-items:center;gap:6px;color:var(--muted);font-size:12px}
+.sheet small i{width:7px;height:7px;border-radius:50%;background:var(--prodaja)}
 
-     Računica za vidljivih 44px:
-       Apple   44px               (bez margine)
-       Google  44 / 0,672 ≈ 65px  (65 × 0,672 = 43,7px vidljivo) */
-  .play-badge img{height:65px; width:auto; display:block;}
-  .store-badge img{height:44px; width:auto; display:block;}
-  .ios-note{font-size:14px; color:var(--muted);}
-  .ios-note strong{color:var(--ink);}
-  .trust-mini{
-    display:flex; gap:22px; margin-top:28px; flex-wrap:wrap;
-  }
-  .trust-mini li{
-    display:flex; align-items:center; gap:8px; font-size:14px; color:var(--muted); font-weight:500;
-  }
-  .trust-mini svg{width:18px; height:18px; color:var(--leaf); flex-shrink:0;}
+.float{position:absolute;z-index:6;display:flex;align-items:center;gap:10px;padding:10px 14px 10px 10px;border-radius:18px;background:rgba(22,30,18,.9);border:1px solid var(--line);backdrop-filter:blur(12px);box-shadow:0 18px 40px rgba(0,0,0,.45);font-size:13.5px;line-height:1.3;max-width:230px;animation:bob 6s ease-in-out infinite}
+.float b{display:block}
+.float span{color:var(--muted)}
+.float .ic{width:36px;height:36px;border-radius:12px;display:grid;place-items:center;flex-shrink:0}
+.f1{top:12%;left:-34%}.f2{top:52%;right:-30%;animation-delay:-2s}.f3{bottom:9%;left:-26%;animation-delay:-4s}
+@keyframes bob{50%{transform:translateY(-12px)}}
+@media (max-width:960px){.f1{left:-6%}.f2{right:-6%}.f3{left:-2%}.float{max-width:190px;font-size:12px}}
+@media (max-width:700px){.float{display:none}}
 
-  .hero-art{position:relative;}
-  .hero-art svg{width:100%; height:auto;}
+/* traka */
+.ticker{position:relative;z-index:2;background:var(--brand-hi);color:#0B1009;overflow:hidden;padding-block:15px;transform:rotate(-1.6deg);margin-block:-10px 0}
+.ticker .row{display:flex;gap:48px;width:max-content;animation:tick 42s linear infinite;font-family:var(--f-display);font-weight:800;font-size:clamp(18px,2.2vw,26px);white-space:nowrap}
+.ticker .row span{display:inline-flex;align-items:center;gap:14px}
+.ticker .row img{width:22px;height:22px}
+@keyframes tick{to{transform:translateX(-50%)}}
 
-  /* ---------- Trust row ---------- */
-  .trust-row{display:flex; align-items:center; gap:14px; margin-top:36px;}
-  .avatar-stack{display:flex;}
-  .avatar-stack span{
-    width:38px; height:38px; border-radius:50%; border:3px solid var(--cream);
-    display:flex; align-items:center; justify-content:center;
-    font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:13px; color:#fff;
-    margin-left:-10px;
-  }
-  .avatar-stack span:first-child{margin-left:0;}
-  .avatar-stack span:nth-child(1){background:#3C9D5E;}
-  .avatar-stack span:nth-child(2){background:#C4633B;}
-  .avatar-stack span:nth-child(3){background:#1E4D3B;}
-  .trust-row p{font-size:14px; color:var(--muted); font-weight:500;}
-  .trust-row p strong{color:var(--ink);}
+/* vrste objava */
+.kinds{padding-block:130px 40px}
+.sec-head{display:flex;flex-direction:column;gap:14px;max-width:760px;margin-bottom:48px}
+.sec-head h2{font-size:clamp(36px,5.4vw,70px);font-weight:800}
+.sec-head p{color:var(--muted);font-size:19px}
+.k-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px}
+@media (max-width:1000px){.k-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:520px){.k-grid{grid-template-columns:1fr}}
+.k{position:relative;overflow:hidden;border-radius:26px;background:var(--surface);border:1px solid var(--line);padding:26px 22px;display:flex;flex-direction:column;gap:12px;min-height:250px;transition:transform .45s cubic-bezier(.2,.8,.2,1),border-color .3s}
+.k::before{content:"";position:absolute;inset:auto -30% -60% -30%;height:80%;background:radial-gradient(closest-side,var(--c),transparent);opacity:.0;transition:opacity .45s}
+.k:hover{transform:translateY(-8px) rotate(-.6deg);border-color:var(--c)}
+.k:hover::before{opacity:.22}
+.k svg{color:var(--c);transition:transform .5s cubic-bezier(.3,1.6,.5,1)}
+.k:hover svg{transform:scale(1.18) rotate(-8deg)}
+.k h3{font-size:26px;font-weight:800}
+.k p{color:var(--muted);font-size:15px;line-height:1.5;position:relative}
+.k .note{margin-top:auto;font-size:12.5px;font-weight:700;color:var(--c);position:relative}
 
-  /* ---------- Phone mockups ---------- */
-  .phone-stage{
-    display:flex; align-items:flex-end; justify-content:center; gap:10px;
-    padding:20px 0 10px; max-width:560px; margin:0 auto;
-  }
-  .phone{
-    width:118px; background:#fff; border-radius:22px; border:4px solid #fff;
-    box-shadow:0 18px 34px -12px rgba(21,55,41,0.35), 0 0 0 1px rgba(21,55,41,0.06);
-    overflow:hidden; flex-shrink:0; position:relative;
-  }
-  .phone .notch{
-    position:absolute; top:5px; left:50%; transform:translateX(-50%);
-    width:36px; height:4px; border-radius:6px; background:rgba(0,0,0,0.15); z-index:5;
-  }
-  .phone.mid{width:132px; margin-bottom:12px;}
-  .phone.small{width:112px; margin-bottom:-4px;}
-  .phone-head{
-    background:var(--forest); color:#fff; padding:13px 9px 8px;
-  }
-  .phone-head .ph-title{font-size:10.5px; font-weight:700; font-family:'Bricolage Grotesque',sans-serif;}
-  .phone-head .ph-sub{font-size:8px; color:#B7D9C7; margin-top:2px;}
-  .phone-body{background:var(--cream); padding:8px; min-height:200px;}
-  .ph-bar{height:6px; border-radius:4px; background:var(--line); margin-bottom:6px;}
-  .ph-bar.w60{width:60%;} .ph-bar.w80{width:80%;} .ph-bar.w40{width:40%;}
-  .ph-card{background:#fff; border-radius:10px; padding:8px; margin-bottom:8px; box-shadow:0 4px 10px rgba(21,55,41,0.06);}
-  .ph-row{display:flex; gap:6px; align-items:center;}
-  .ph-dot{width:20px; height:20px; border-radius:50%; flex-shrink:0;}
-  .ph-chip{
-    width:28px; height:28px; border-radius:9px; background:var(--cream-dim);
-    display:flex; align-items:center; justify-content:center; flex-shrink:0;
-  }
-  .ph-chip svg{width:14px; height:14px; color:var(--forest);}
-  .ph-img{background:linear-gradient(135deg,#CFE3D8,#A9D2BC); border-radius:8px; height:46px; margin:6px 0;}
-  .ph-pin-map{
-    position:relative; height:150px; border-radius:12px; overflow:hidden;
-    background:
-      repeating-linear-gradient(0deg, transparent, transparent 24px, rgba(30,77,59,0.06) 25px),
-      repeating-linear-gradient(90deg, transparent, transparent 24px, rgba(30,77,59,0.06) 25px),
-      var(--cream-dim);
-  }
-  .ph-pin-map .center{
-    position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
-    width:16px; height:16px; border-radius:50%; background:var(--leaf);
-    box-shadow:0 0 0 6px rgba(60,157,94,0.2);
-  }
-  .ph-pin-map .badge{
-    position:absolute; width:26px; height:26px; border-radius:50%; background:#fff;
-    display:flex; align-items:center; justify-content:center; font-size:8px; font-weight:700;
-    color:var(--forest); box-shadow:0 3px 8px rgba(21,55,41,0.15);
-  }
-  .ph-grid2{display:grid; grid-template-columns:1fr 1fr; gap:6px;}
-  .ph-feat{
-    background:#fff; border-radius:10px; padding:8px; text-align:center;
-    box-shadow:0 4px 10px rgba(21,55,41,0.05);
-  }
-  .ph-feat .ph-chip{margin:0 auto 5px;}
-  .ph-feat span{font-size:8.5px; font-weight:600; color:var(--ink); line-height:1.2; display:block;}
-  .ph-banner{
-    margin-top:8px; background:linear-gradient(90deg,#FCE9DD,#F6D9C4); border-radius:10px;
-    padding:8px; display:flex; align-items:center; gap:6px;
-  }
-  .ph-banner span{font-size:9px; font-weight:700; color:#8A4526;}
+/* priča */
+.story{padding-block:110px 40px}
+.s-grid{display:grid;grid-template-columns:1fr 400px;gap:72px;align-items:start}
+@media (max-width:960px){.s-grid{grid-template-columns:1fr}.s-phone{display:none}}
+.steps{display:flex;flex-direction:column;gap:26vh;padding-block:8vh 22vh}
+@media (max-width:960px){.steps{gap:64px;padding:0}}
+.step{display:flex;flex-direction:column;gap:14px;opacity:.3;transform:translateX(-8px);transition:opacity .5s,transform .5s}
+.step.on{opacity:1;transform:none}
+@media (max-width:960px){.step{opacity:1;transform:none}}
+.step .num{font-family:var(--f-display);font-weight:800;font-size:15px;color:var(--c);display:flex;align-items:center;gap:10px}
+.step .num i{width:34px;height:3px;border-radius:2px;background:var(--c)}
+.step h3{font-size:clamp(32px,4vw,52px);font-weight:800}
+.step p{color:var(--muted);font-size:19px;max-width:28em}
+.step .mini{display:none}
+@media (max-width:960px){.step .mini{display:block;width:min(320px,100%);margin-top:10px}}
+.s-phone{position:sticky;top:calc(env(safe-area-inset-top,0px) + 96px)}
+.s-phone .device{width:380px}
+.view{position:absolute;inset:0;display:flex;flex-direction:column;opacity:0;transform:scale(.97) translateY(18px);transition:opacity .6s,transform .7s cubic-bezier(.2,.8,.2,1)}
+.view.on{opacity:1;transform:none}
+.mini .device{aspect-ratio:9/16;border-radius:40px;padding:9px}
+.mini .scr{inset:9px;border-radius:32px}
+.mini .view{position:absolute;opacity:1;transform:none}
+.mini .device::before{display:none}
+.mini .app-top{padding-top:18px}
+.ilu-napomena{margin-top:40px;font-size:13px;color:var(--muted)}
 
-  .roofline{width:100%; display:block; height:auto;}
-  .roofline-wrap{margin-top:64px; line-height:0;}
-  .benefit-strip{grid-template-columns:repeat(6,1fr); gap:16px;}
+/* elementi aplikacije */
+.feed{flex:1;overflow:hidden;padding:12px;display:flex;flex-direction:column;gap:12px}
+.stories{display:flex;gap:10px}
+.st{width:54px;flex-shrink:0;display:flex;flex-direction:column;align-items:center;gap:4px;font-size:10.5px;color:var(--muted)}
+.st b{width:54px;height:54px;border-radius:50%;padding:3px;background:conic-gradient(var(--obav),var(--pomoc),var(--brand-hi),var(--obav))}
+.st b i{display:block;width:100%;height:100%;border-radius:50%;border:2.5px solid var(--bg2);overflow:hidden}
+.pills{display:flex;gap:6px}
+.pills span{height:28px;padding:0 11px;border-radius:999px;background:var(--surface2);font-size:12px;font-weight:600;display:flex;align-items:center;white-space:nowrap}
+.pills span.on{background:var(--brand);color:#fff}
+.post{border-radius:16px;overflow:hidden;background:var(--surface)}
+.post .h{display:flex;align-items:center;gap:8px;padding:10px}
+.post .h .av{width:30px;height:30px;border-radius:50%;flex-shrink:0;overflow:hidden}
+.post .h b{display:block;font-size:13px}
+.post .h small{display:flex;align-items:center;gap:5px;color:var(--muted);font-size:11.5px}
+.post .h small i{width:6px;height:6px;border-radius:50%}
+.post .ph{position:relative;aspect-ratio:4/5;max-height:240px;width:100%;overflow:hidden}
+.post .ph .cnt{position:absolute;top:8px;right:8px;font-size:11px;font-weight:700;background:rgba(0,0,0,.55);padding:3px 8px;border-radius:999px}
+.post .acts{display:flex;align-items:center;gap:14px;padding:9px 10px 4px}
+.post .acts svg{width:21px;height:21px}
+.post .acts .heart{color:#FF4D7E;animation:beat 3.5s infinite}
+@keyframes beat{0%,70%,100%{transform:scale(1)}75%{transform:scale(1.3)}80%{transform:scale(.95)}85%{transform:scale(1.12)}}
+.post .dots{display:flex;gap:4px;margin:0 auto}
+.post .dots i{width:5px;height:5px;border-radius:50%;background:#55604E}
+.post .dots i.on{background:var(--brand-hi)}
+.post .likes{display:flex;align-items:center;gap:6px;padding:2px 10px;font-size:12px}
+.faces{display:flex}
+.faces i{width:17px;height:17px;border-radius:50%;border:2px solid var(--surface);margin-left:-6px}
+.faces i:first-child{margin-left:0}
+.post .cm{padding:2px 10px 10px;font-size:12px;line-height:1.45}
+.post .cm b{font-weight:700}
+.post .cm span{color:var(--muted)}
 
-  /* ---------- How it works ---------- */
-  .how{padding:88px 0 96px;}
-  .section-head{max-width:640px; margin-bottom:56px;}
-  .section-head h2{font-size:clamp(28px,3.4vw,40px); margin-top:10px;}
-  .section-head p{color:var(--muted); font-size:17px; margin-top:14px;}
+.shop{flex:1;padding:12px;display:grid;grid-template-columns:1fr 1fr;gap:10px;align-content:start;overflow:hidden}
+.item{border-radius:14px;overflow:hidden;background:var(--surface)}
+.item .im{aspect-ratio:1;overflow:hidden}
+.item div.t{padding:8px 9px 10px}
+.item b{display:block;color:var(--brand-hi);font-size:14px;font-family:var(--f-display)}
+.item span{display:block;font-size:12px}
+.item small{color:var(--muted);font-size:11px}
 
-  .steps{display:grid; grid-template-columns:repeat(3,1fr); gap:32px;}
-  .step{padding:28px 24px; background:#fff; border:1px solid var(--line); border-radius:var(--radius);}
-  .step .num{
-    font-family:'Bricolage Grotesque', sans-serif; font-weight:800; font-size:15px;
-    color:var(--terracotta); margin-bottom:18px; display:block;
-  }
-  .step h3{font-size:20px; margin-bottom:10px;}
-  .step p{color:var(--muted); font-size:15px;}
+.ev{flex:1;padding:12px;overflow:hidden;display:flex;flex-direction:column;gap:12px}
+.evc{border-radius:18px;overflow:hidden;background:var(--surface);border:1px solid var(--line)}
+.evc .im{position:relative;height:170px;overflow:hidden}
+.evc .date{position:absolute;left:10px;top:10px;background:#fff;color:#0B1009;border-radius:12px;padding:5px 9px;text-align:center;line-height:1;font-family:var(--f-display);font-weight:800}
+.evc .date small{display:block;color:var(--brand);font-size:11px;margin-bottom:2px}
+.evc .date b{font-size:20px}
+.evc .t{padding:11px 12px 12px;display:flex;flex-direction:column;gap:5px;font-size:12.5px;color:var(--muted)}
+.evc .t h4{margin:0;color:var(--ink);font-family:var(--f-display);font-size:18px}
+.evc .row{display:flex;align-items:center;justify-content:space-between;margin-top:6px}
+.evc .go{height:32px;padding:0 13px;border-radius:10px;background:var(--brand);color:#fff;font-weight:700;display:flex;align-items:center;font-size:12.5px}
 
-  /* ---------- Features ---------- */
-  .features{padding:20px 0 96px;}
-  .feature-grid{
-    display:grid; grid-template-columns:repeat(3,1fr); gap:24px;
-  }
-  .feature-card{
-    background:#fff; border:1px solid var(--line); border-radius:var(--radius);
-    padding:28px; transition:border-color .15s, transform .15s;
-  }
-  .feature-card:hover{border-color:var(--leaf); transform:translateY(-3px);}
-  .feature-card .icon-wrap{
-    width:46px; height:46px; border-radius:12px; background:var(--cream-dim);
-    display:flex; align-items:center; justify-content:center; margin-bottom:18px;
-  }
-  .feature-card .icon-wrap svg{width:24px; height:24px; color:var(--forest);}
-  .feature-card h3{font-size:18px; margin-bottom:8px;}
-  .feature-card p{font-size:14.5px; color:var(--muted);}
-  .feature-card.plus18 .icon-wrap{background:#F3E3DC;}
-  .feature-card.plus18 .icon-wrap svg{color:var(--terracotta);}
-  .tag18{
-    display:inline-block; font-size:11px; font-weight:700; color:var(--terracotta);
-    border:1px solid var(--terracotta); border-radius:100px; padding:2px 8px; margin-left:8px;
-    vertical-align:middle;
-  }
+.prof{flex:1;overflow:hidden;padding:12px;display:flex;flex-direction:column;gap:12px}
+.prof .hd{display:flex;align-items:center;gap:14px}
+.prof .bigav{width:66px;height:66px;border-radius:50%;background:var(--logo-circ) center/cover;box-shadow:0 0 0 3px var(--brand-hi)}
+.prof .stats{flex:1;display:flex;justify-content:space-around;text-align:center;font-size:11px;color:var(--muted)}
+.prof .stats b{display:block;color:var(--ink);font-size:16px;font-family:var(--f-display)}
+.prof .nm{display:flex;align-items:center;gap:8px;font-weight:700;font-size:15px}
+.flame{display:inline-flex;align-items:center;gap:3px;height:20px;padding:0 7px;border-radius:10px;background:#3A2412;color:#FF9F4A;font-size:11.5px;font-weight:700}
+.flame svg{animation:flick 1.2s ease-in-out infinite alternate;transform-origin:50% 90%}
+@keyframes flick{to{transform:scale(1.15) rotate(4deg)}}
+.prof .int{display:flex;align-items:center;gap:10px;border-radius:12px;background:#1E2A15;padding:9px 11px;font-size:12px}
+.prof .int b{margin-left:auto;font-family:var(--f-display);color:var(--brand-hi);font-size:18px}
+.gal{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;border-radius:10px;overflow:hidden}
+.gal div{aspect-ratio:9/14;overflow:hidden}
 
-  /* ---------- Map showcase (dark) ---------- */
-  .map-section{
-    background:var(--forest); color:#fff;
-    padding:96px 0;
-  }
-  .map-grid{
-    display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:center;
-  }
-  .map-section h2{font-size:clamp(28px,3.4vw,40px); color:#fff; margin:12px 0 18px;}
-  .map-section p{color:#CFE3D8; font-size:17px; max-width:48ch;}
-  .map-feature-list{margin-top:28px; display:flex; flex-direction:column; gap:16px;}
-  .map-feature-list li{display:flex; gap:12px; align-items:flex-start; font-size:15px; color:#E5F0EA;}
-  .map-feature-list svg{width:20px; height:20px; color:var(--leaf-bright); flex-shrink:0; margin-top:2px;}
+/* privatnost */
+.priv{padding-block:110px 60px}
+.p-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+@media (max-width:960px){.p-grid{grid-template-columns:1fr}}
+.p-copy{display:flex;flex-direction:column;gap:20px;min-width:0}
+.p-copy h2{font-size:clamp(36px,5vw,64px);font-weight:800}
+.p-copy p{color:var(--muted);font-size:19px;max-width:30em}
+.seg{display:inline-flex;align-self:flex-start;padding:5px;border-radius:999px;background:var(--surface);border:1px solid var(--line)}
+.seg button{font:inherit;font-weight:600;font-size:15px;border:0;background:none;color:var(--muted);padding:11px 20px;border-radius:999px;cursor:pointer;transition:background .3s,color .3s}
+.seg button[aria-pressed="true"]{background:var(--brand-hi);color:#0B1009}
+.checks{display:grid;gap:12px}
+.checks div{display:flex;gap:12px;font-size:16px}
+.checks svg{flex-shrink:0;margin-top:3px;color:var(--brand-hi)}
+.demo{position:relative;aspect-ratio:1;width:100%;max-width:540px;justify-self:center;border-radius:40px;overflow:hidden;background:#151A14;border:1px solid var(--line);box-shadow:0 40px 90px rgba(0,0,0,.5)}
+.demo svg.bg{position:absolute;inset:0;width:100%;height:100%}
+.zone{position:absolute;left:50%;top:48%;width:60%;aspect-ratio:1;border-radius:50%;transform:translate(-50%,-50%) scale(.05);opacity:0;background:radial-gradient(circle,rgba(143,209,79,.35),rgba(143,209,79,.12) 62%,transparent 72%);border:2px dashed var(--prodaja);transition:transform 1s cubic-bezier(.2,.8,.2,1),opacity .6s}
+.demo.approx .zone{transform:translate(-50%,-50%) scale(1);opacity:1}
+.demo .pin{opacity:1;animation:none;left:56%;top:43%;transition:opacity .5s,transform .6s}
+.demo.approx .pin.exact{opacity:0;transform:scale(.4)}
+.demo .lbl{position:absolute;left:16px;right:16px;bottom:16px;border-radius:20px;padding:14px 16px;background:rgba(22,30,18,.95);border:1px solid var(--line);font-weight:600}
+.demo .lbl small{display:block;color:var(--muted);font-weight:500;font-size:13.5px;margin-top:2px}
 
-  .map-art{position:relative;}
-  .map-art svg{width:100%; height:auto;}
+/* poziv */
+.cta{padding-block:70px 110px}
+.cta-box{position:relative;overflow:hidden;isolation:isolate;border-radius:44px;padding:80px clamp(24px,6vw,80px);background:linear-gradient(135deg,var(--olive-a),var(--olive-b));display:grid;grid-template-columns:1.25fr .75fr;gap:40px;align-items:center}
+@media (max-width:960px){.cta-box{grid-template-columns:1fr;padding-block:56px}}
+.cta-box h2{font-size:clamp(40px,6vw,86px);font-weight:800}
+.cta-box p.l{font-size:19px;opacity:.92;margin-block:18px 28px;max-width:28em}
+.rings{position:absolute;right:-160px;top:50%;width:720px;height:720px;transform:translateY(-50%);z-index:-1;pointer-events:none}
+.rings i{position:absolute;inset:0;border-radius:50%;border:2px solid rgba(255,255,255,.16);animation:ring 6s linear infinite}
+.rings i:nth-child(2){animation-delay:-2s}.rings i:nth-child(3){animation-delay:-4s}
+@keyframes ring{from{transform:scale(.18);opacity:1}to{transform:scale(1);opacity:0}}
+.biglogo{width:96px;height:96px;border-radius:26px;box-shadow:0 20px 50px rgba(0,0,0,.35);margin-bottom:22px;animation:bob 6s ease-in-out infinite}
+.donate{border-radius:30px;padding:30px;background:rgba(11,16,9,.35);border:1px solid rgba(255,255,255,.14);backdrop-filter:blur(10px);display:flex;flex-direction:column;gap:12px}
+.donate h3{font-size:26px;font-weight:800}
+.donate p{font-size:15px;opacity:.9}
+.donate a{align-self:flex-start;display:inline-flex;align-items:center;gap:8px;height:50px;padding:0 22px;border-radius:15px;background:#fff;color:var(--olive-a);font-weight:700;text-decoration:none;transition:transform .3s}
+.donate a:hover{transform:translateY(-3px)}
 
-  /* ---------- Safety ---------- */
-  .safety{padding:96px 0;}
-  .safety-grid{display:grid; grid-template-columns:0.9fr 1.1fr; gap:56px; align-items:start;}
-  .safety-list{display:flex; flex-direction:column; gap:22px; margin-top:28px;}
-  .safety-item{display:flex; gap:16px;}
-  .safety-item .icon-wrap{
-    width:42px; height:42px; border-radius:12px; background:var(--cream-dim);
-    display:flex; align-items:center; justify-content:center; flex-shrink:0;
-  }
-  .safety-item svg{width:22px; height:22px; color:var(--forest);}
-  .safety-item h3{font-size:16px; margin-bottom:4px;}
-  .safety-item p{font-size:14.5px; color:var(--muted);}
-  .safety-note{
-    background:#fff; border:1px solid var(--line); border-radius:var(--radius);
-    padding:32px; align-self:start;
-  }
-  .safety-note .eyebrow{margin-bottom:10px; display:block;}
-  .safety-note p{color:var(--muted); font-size:15px; margin-bottom:14px;}
-  .safety-note a{color:var(--forest); font-weight:600; text-decoration:underline;}
+/* pitanja */
+.faq{padding-block:20px 110px;scroll-margin-top:84px} /* bez ovoga lepljivo zaglavlje prekrije naslov posle klika na „Pitanja" */
+.faq-in{max-width:840px;margin:0 auto}
+.faq h2{font-size:clamp(36px,5vw,62px);font-weight:800;margin-bottom:24px}
+details{border-bottom:1px solid var(--line)}
+summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:16px;padding-block:24px;font-family:var(--f-display);font-weight:600;font-size:clamp(19px,2.1vw,24px)}
+summary::-webkit-details-marker{display:none}
+summary .pl{margin-left:auto;width:38px;height:38px;border-radius:50%;background:var(--surface2);display:grid;place-items:center;flex-shrink:0;transition:transform .4s,background .3s}
+details[open] summary .pl{transform:rotate(45deg);background:var(--brand)}
+details p{color:var(--muted);font-size:17px;padding-bottom:24px;max-width:40em}
 
-  /* ---------- FAQ ---------- */
-  .faq{padding:20px 0 96px; max-width:820px; margin:0 auto;}
-  .faq details{
-    border-bottom:1px solid var(--line); padding:22px 0;
-  }
-  .faq summary{
-    cursor:pointer; font-weight:600; font-size:16.5px; list-style:none;
-    display:flex; justify-content:space-between; align-items:center; gap:16px;
-  }
-  .faq summary::-webkit-details-marker{display:none;}
-  .faq summary .plus{
-    width:22px; height:22px; border-radius:50%; border:1.5px solid var(--line-dark);
-    display:flex; align-items:center; justify-content:center; flex-shrink:0; position:relative;
-    transition:transform .2s;
-  }
-  .faq summary .plus::before, .faq summary .plus::after{
-    content:''; position:absolute; background:var(--ink);
-  }
-  .faq summary .plus::before{width:9px; height:1.5px;}
-  .faq summary .plus::after{width:1.5px; height:9px;}
-  .faq details[open] summary .plus{transform:rotate(45deg);}
-  .faq p.answer{color:var(--muted); font-size:15px; margin-top:14px; max-width:65ch;}
+footer{border-top:1px solid var(--line);background:var(--bg2)}
+footer .wrap{padding-block:52px 36px;display:flex;flex-wrap:wrap;gap:36px;justify-content:space-between}
+footer .b{display:flex;align-items:center;gap:10px;font-family:var(--f-display);font-weight:800;font-size:19px}
+footer .b img{width:36px;height:36px;border-radius:10px}
+footer h4{margin:0 0 12px;font-size:14px;color:var(--muted);font-weight:600}
+footer a{display:block;text-decoration:none;margin-bottom:9px;font-size:15px;opacity:.88}
+footer a:hover{opacity:1;color:var(--brand-hi)}
+.fine{width:100%;font-size:13px;color:var(--muted)}
 
-  /* ---------- Final CTA ---------- */
-  .final-cta{
-    background:var(--forest-dark); color:#fff; text-align:center;
-    padding:96px 24px; border-radius:32px; margin:0 24px 96px; max-width:1072px; margin-left:auto; margin-right:auto;
-  }
-  .final-cta h2{color:#fff; font-size:clamp(28px,4vw,42px); margin-bottom:16px;}
-  .final-cta p{color:#CFE3D8; font-size:17px; max-width:44ch; margin:0 auto 34px;}
-  .final-cta .cta-row{justify-content:center;}
-
-  /* ---------- Footer ---------- */
-  footer{background:var(--forest); color:#CFE3D8; padding:56px 0 32px;}
-  .footer-grid{display:flex; justify-content:space-between; flex-wrap:wrap; gap:32px; padding-bottom:36px; border-bottom:1px solid var(--line-dark);}
-  .footer-logo{display:flex; align-items:center; gap:10px; font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:18px; color:#fff; margin-bottom:10px;}
-  .footer-logo svg{width:24px; height:24px;}
-  .footer-col h4{font-size:13px; text-transform:uppercase; letter-spacing:0.08em; color:#8FAE9E; margin-bottom:14px;}
-  .footer-col ul{display:flex; flex-direction:column; gap:10px;}
-  .footer-col a{font-size:14.5px; color:#CFE3D8; opacity:0.9;}
-  .footer-col a:hover{opacity:1; text-decoration:underline;}
-  .footer-bottom{display:flex; justify-content:space-between; align-items:center; padding-top:24px; flex-wrap:wrap; gap:12px;}
-  .footer-bottom p{font-size:13px; color:#8FAE9E;}
-
-  /* ---------- Responsive ---------- */
-  @media (max-width: 900px){
-    nav.main-nav{display:none;}
-    .header-cta{display:none;}
-    .burger{display:flex;}
-    .hero-grid{grid-template-columns:1fr;}
-    .hero-art{order:-1; max-width:100%; margin:0 0 12px;}
-    .phone-stage{max-width:none; overflow-x:auto; justify-content:flex-start; padding:20px 24px 16px; -webkit-overflow-scrolling:touch;}
-    .steps{grid-template-columns:1fr;}
-    .feature-grid{grid-template-columns:1fr 1fr;}
-    .map-grid{grid-template-columns:1fr;}
-    .map-art{order:-1;}
-    .safety-grid{grid-template-columns:1fr;}
-    .footer-grid{flex-direction:column; gap:28px;}
-    .benefit-strip{grid-template-columns:repeat(3,1fr);}
-  }
-  @media (max-width: 560px){
-    .hero{padding-top:56px;}
-    .feature-grid{grid-template-columns:1fr;}
-    .benefit-strip{grid-template-columns:repeat(2,1fr);}
-    .final-cta{margin-left:16px; margin-right:16px; padding:64px 20px;}
-    /* Isti odnos kao gore: vidljivih 38px -> Google 38/0,672 ≈ 57px. */
-    .play-badge img{height:57px;}
-    .store-badge img{height:38px;}
-  }
-
-  #mnav.open{display:flex !important;}
-
-  @media (prefers-reduced-motion: reduce){
-    *{transition:none !important; scroll-behavior:auto !important;}
-  }
+@supports (animation-timeline: view()){
+  .rise{animation:rise linear both;animation-timeline:view();animation-range:entry 0% cover 30%}
+  @keyframes rise{from{transform:translateY(70px) scale(.97);opacity:.2}to{transform:none;opacity:1}}
+}
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation-duration:.001s!important;animation-iteration-count:1!important;transition:none!important;scroll-behavior:auto!important}
+  .rot span{transform:none}.rot span:not(.on){display:none}
+  .pin{opacity:1}
+  /* bez ovoga: kartica oglasa na mapi ostaje van ekrana (kraj animacije je translateY(130%)), a blokovi .rise bleđi dok se ne skroluje */
+  .sheet{animation:none!important;transform:none}
+  .rise{animation:none!important;opacity:1;transform:none}
+  .step{opacity:1;transform:none}
+}
 </style>
 </head>
 <body>
 
-<header class="site-header">
-  <div class="header-inner">
-    <a href="#top" class="logo">
-      <span class="logo-badge" style="background:transparent;">
-        <img src="/assets/logo-icon.png" alt="Moj Komšiluk logo" style="width:44px; height:44px; border-radius:50%;">
-      </span>
-      <span class="logo-text">
-        Moj Komšiluk
-        <span class="sub">Tvoj hiperlokalni komšijski servis</span>
-      </span>
-    </a>
-    <nav class="main-nav">
-      <a href="#top">Početna</a>
-      <a href="#kako-radi">Kako funkcioniše</a>
-      <a href="#sta-nudi">Mogućnosti</a>
-      <a href="#bezbednost">O nama</a>
-      <a href="#pitanja">Kontakt</a>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#pocetak" aria-label="Moj Komšiluk, na početak"><img src="/assets/logo-beli.png" alt=""><b>Moj Komšiluk</b></a>
+    <nav aria-label="Glavni meni">
+      <a href="#sta">Šta možeš</a><a href="#kako">Kako izgleda</a><a href="#privatnost">Privatnost</a><a href="#pitanja">Pitanja</a>
+      <a class="dl" href="#preuzmi">Preuzmi</a>
     </nav>
-    <div class="header-right">
-      <a class="btn btn-ghost-dark btn-sm" href="https://play.google.com/store/apps/details?id=com.mojkomsiluk.app">Prijavi se</a>
-      <a class="btn btn-primary btn-sm" href="https://play.google.com/store/apps/details?id=com.mojkomsiluk.app">Preuzmi aplikaciju</a>
-    </div>
-    <button class="burger" aria-label="Meni" onclick="document.getElementById('mnav').classList.toggle('open')">
-      <span></span><span></span><span></span>
-    </button>
   </div>
-  <nav id="mnav" style="display:none; flex-direction:column; gap:2px; padding:0 24px 18px;">
-    <a style="padding:12px 0; font-weight:500; color:#fff;" href="#top">Početna</a>
-    <a style="padding:12px 0; font-weight:500; color:#fff;" href="#kako-radi">Kako funkcioniše</a>
-    <a style="padding:12px 0; font-weight:500; color:#fff;" href="#sta-nudi">Mogućnosti</a>
-    <a style="padding:12px 0; font-weight:500; color:#fff;" href="#bezbednost">O nama</a>
-    <a style="padding:12px 0; font-weight:500; color:#fff;" href="#pitanja">Kontakt</a>
-    <a style="padding:12px 0; font-weight:600; color:#8FE0AA;" href="https://play.google.com/store/apps/details?id=com.mojkomsiluk.app">Preuzmi aplikaciju →</a>
-  </nav>
 </header>
 
-<main id="top">
-
-  <!-- HERO -->
-  <section class="hero">
-    <div class="wrap hero-grid">
-      <div>
-        <span class="eyebrow" style="background:var(--cream-dim); padding:7px 14px; border-radius:100px; display:inline-flex; align-items:center; gap:6px;">
-          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 22s8-4 8-11V5l-8-3-8 3v6c0 7 8 11 8 11Z"/></svg>
-          BLIZU TEBE, UVEK UZ TEBE
-        </span>
-        <h1>Tvoj komšiluk,<br>na <em>dohvat</em> ruke</h1>
-        <p class="lede">Pomoć, prodaja, druženje i upoznavanje sa ljudima iz tvog kraja — sve na jednom mestu.</p>
-
-        <div class="cta-row">
-          <a class="btn btn-primary" href="https://play.google.com/store/apps/details?id=com.mojkomsiluk.app">
-            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>
-            Preuzmi aplikaciju
-          </a>
-          <a class="btn btn-ghost-dark" style="border-color:var(--line); color:var(--ink);" href="https://apps.apple.com/rs/app/id6801029899">
-            <svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor"><path d="M16.5 12.6c0-2.1 1.7-3.1 1.8-3.2-1-1.4-2.5-1.6-3-1.7-1.3-.1-2.5.7-3.2.7-.7 0-1.7-.7-2.8-.7-1.4 0-2.7.8-3.4 2.1-1.5 2.5-.4 6.2 1 8.3.7 1 1.5 2.1 2.6 2.1 1 0 1.4-.7 2.7-.7 1.2 0 1.6.7 2.6.6 1.1 0 1.8-1 2.5-2 .8-1.2 1.1-2.3 1.1-2.4-.1 0-2.1-.8-2.1-3.1zM14.3 5.6c.6-.7 1-1.6.9-2.6-.9 0-1.9.6-2.5 1.3-.5.6-1 1.6-.9 2.5 1 .1 1.9-.5 2.5-1.2z"/></svg>
-            App Store
-          </a>
-        </div>
-        <p class="ios-note" style="margin-bottom:8px;">Dostupno na <strong>Google Play</strong> i <strong>App Store</strong></p>
-
-        <div class="trust-row">
-          <div class="avatar-stack">
-            <span>MP</span><span>JK</span><span>VA</span>
-          </div>
-          <p>Pridruži se rastućoj <strong>zajednici komšija</strong> u tvom kraju</p>
-        </div>
+<main id="pocetak">
+<section class="hero">
+  <div class="hero-grid" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="hero-copy">
+      <span class="live"><i></i>Tvoje komšije su već tu</span>
+      <h1>Komšiluk koji<br><span class="rot" id="rot"><span class="on">pomaže.</span><span>prodaje.</span><span>se druži.</span><span>pazi na put.</span><span>se zna.</span></span></h1>
+      <p class="lead">Treba ti bušilica na sat vremena? Prodaješ bicikl? Kafa u parku u subotu? <b>Sve sa ljudima iz tvoje ulice</b>, a ne sa celim internetom.</p>
+      <div class="stores">
+        <a class="store" href="https://apps.apple.com/rs/app/id6801029899"><svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.4 12.6c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.2-2.8.8-3.5.8s-1.8-.8-3-.8c-1.6 0-3 .9-3.8 2.3-1.6 2.8-.4 7 1.2 9.2.8 1.1 1.7 2.3 2.9 2.3 1.2 0 1.6-.7 3-.7s1.8.7 3 .7c1.3 0 2.1-1.1 2.8-2.2.9-1.3 1.3-2.5 1.3-2.6 0 0-2.5-1-2.5-3.7zM14.1 5.8c.6-.8 1.1-1.8 1-2.8-.9 0-2 .6-2.7 1.4-.6.7-1.1 1.7-1 2.7 1 .1 2.1-.5 2.7-1.3z"/></svg><span><small>Preuzmi na</small><strong>App Store</strong></span></a>
+        <a class="store" href="https://play.google.com/store/apps/details?id=com.mojkomsiluk.app"><svg width="23" height="23" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 2.5 14.5 12 4 21.5c-.4-.2-.6-.6-.6-1.1V3.6c0-.5.2-.9.6-1.1zm11.6 10.6 2.6 2.4-11.5 6.6 8.9-9zm0-2.2-8.9-9 11.5 6.6-2.6 2.4zm3.9-1.6 2.3 1.3c.8.5.8 1.6 0 2.1l-2.3 1.3-2.8-2.4 2.8-2.3z"/></svg><span><small>Nabavi na</small><strong>Google Play</strong></span></a>
       </div>
-
-      <div class="hero-art">
-        <img src="/assets/hero-phones.png" alt="Moj Komšiluk aplikacija — mapa, početna, mogućnosti i objava ekrani" style="width:100%; height:auto;">
+      <div class="facts">
+        <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg>Besplatno</span>
+        <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg>Bez reklama</span>
+        <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg>Napravljeno u Srbiji</span>
       </div>
     </div>
-
-    <!-- Benefit strip -->
-    <div class="wrap" style="margin-top:56px;">
-      <div class="feature-grid benefit-strip">
-        <div class="feature-card" style="padding:22px 16px; text-align:center;">
-          <div class="icon-wrap" style="margin:0 auto 14px;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
-          <h3 style="font-size:15px;">Poveži se</h3>
-          <p style="font-size:13px;">Upoznaj komšije koje žive blizu tebe.</p>
-        </div>
-        <div class="feature-card" style="padding:22px 16px; text-align:center;">
-          <div class="icon-wrap" style="margin:0 auto 14px;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8Z"/></svg></div>
-          <h3 style="font-size:15px;">Pomozi i budi podrška</h3>
-          <p style="font-size:13px;">Zajedno činimo komšiluk boljim mestom.</p>
-        </div>
-        <div class="feature-card" style="padding:22px 16px; text-align:center;">
-          <div class="icon-wrap" style="margin:0 auto 14px;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/></svg></div>
-          <h3 style="font-size:15px;">Kupi i prodaj lokalno</h3>
-          <p style="font-size:13px;">Prodaj, kupuj i menjaj stvari u svom kraju.</p>
-        </div>
-        <div class="feature-card" style="padding:22px 16px; text-align:center;">
-          <div class="icon-wrap" style="margin:0 auto 14px;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></div>
-          <h3 style="font-size:15px;">Događaji i druženja</h3>
-          <p style="font-size:13px;">Pronađi zanimljive događaje i upoznaj ljude.</p>
-        </div>
-        <div class="feature-card" style="padding:22px 16px; text-align:center;">
-          <div class="icon-wrap" style="margin:0 auto 14px;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-11V5l-8-3-8 3v6c0 7 8 11 8 11Z"/></svg></div>
-          <h3 style="font-size:15px;">Privatno i bezbedno</h3>
-          <p style="font-size:13px;">Tvoj komšiluk, tvoja pravila.</p>
-        </div>
-        <div class="feature-card" style="padding:22px 16px; text-align:center;">
-          <div class="icon-wrap" style="margin:0 auto 14px;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 6v16l7-4 8 4 7-4V2l-7 4-8-4Z"/></svg></div>
-          <h3 style="font-size:15px;">Mapa komšiluka</h3>
-          <p style="font-size:13px;">Vidi šta se dešava oko tebe.</p>
+    <div class="stage" id="stage" aria-label="Primer: mapa komšiluka u aplikaciji sa objavama komšija">
+      <div class="device" id="device">
+        <div class="scr">
+          <div class="app-top">Mapa komšiluka</div>
+          <div class="map" id="heroMap"></div>
+          <div class="tabbar" aria-hidden="true"><span></span><span></span><span></span><span class="on"></span><span></span><span class="me"></span></div>
         </div>
       </div>
+      <div class="float f1"><span class="ic" style="background:rgba(242,103,107,.18)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F2676B" stroke-width="2.2" stroke-linejoin="round" aria-hidden="true"><path d="M12 20s-7-4.4-9.2-8.6C1.2 8.2 3 4.5 6.6 4.5c2.1 0 3.5 1.2 5.4 3.3 1.9-2.1 3.3-3.3 5.4-3.3 3.6 0 5.4 3.7 3.8 6.9C19 15.6 12 20 12 20z"/></svg></span><span><b>Marko traži pomoć</b>Nošenje frižidera · 120 m</span></div>
+      <div class="float f2"><span class="ic" style="background:rgba(129,149,236,.18)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8195EC" stroke-width="2.2" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 5 6v5c0 4.5 3 8 7 10 4-2 7-5.5 7-10V6z"/></svg></span><span><b>Kontrola kod škole</b>Potvrdilo 4 komšije</span></div>
+      <div class="float f3"><span class="ic" style="background:rgba(242,181,68,.18)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F2B544" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M9 3v4M15 3v4"/></svg></span><span><b>Kafa u parku</b>Subota 10:00 · 9 dolazi</span></div>
     </div>
+  </div>
+</section>
 
-    <div class="roofline-wrap">
-      <svg class="roofline" viewBox="0 0 1200 90" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M0 90 V50 L40 20 L80 50 V40 L130 10 L180 40 V55 L215 30 L250 55 V45 L300 15 L350 45 V60 L390 35 L430 60 V50 L480 20 L530 50 V40 L575 15 L620 40 V58 L660 32 L700 58 V48 L750 18 L800 48 V60 L840 38 L880 60 V50 L930 22 L980 50 V42 L1025 15 L1070 42 V56 L1110 30 L1150 56 V90 Z" fill="#1E4D3B"/>
+<div class="ticker" aria-hidden="true"><div class="row" id="ticker"></div></div>
+
+<section class="kinds" id="sta">
+  <div class="wrap">
+    <div class="sec-head rise">
+      <span class="eyebrow">Šta objavljuješ</span>
+      <h2>Pet stvari koje se dešavaju u svakom kraju.</h2>
+      <p>Izabereš vrstu, dodaš sliku i mesto. Komšije iz okoline vide objavu na Početnoj i na mapi.</p>
+    </div>
+    <div class="k-grid" id="kinds"></div>
+  </div>
+</section>
+
+<section class="story" id="kako">
+  <div class="wrap">
+    <div class="sec-head rise">
+      <span class="eyebrow">Kako izgleda</span>
+      <h2>Ceo kraj u jednom telefonu.</h2>
+    </div>
+    <div class="s-grid">
+      <div class="steps" id="steps"></div>
+      <div class="s-phone" aria-hidden="true"><div class="device"><div class="scr" id="views"></div></div></div>
+    </div>
+    <p class="ilu-napomena">Prikazi ekrana su ilustracije. Imena i objave su izmišljeni.</p>
+  </div>
+</section>
+
+<section class="priv" id="privatnost">
+  <div class="wrap p-grid">
+    <div class="p-copy rise">
+      <span class="eyebrow">Privatnost</span>
+      <h2>Komšije znaju da si blizu. Ne znaju gde spavaš.</h2>
+      <p>Kad prodaješ, daješ oglas, zoveš na druženje ili javljaš obaveštenje, drugi vide krug od oko 100 metara, a ne tvoja vrata.</p>
+      <div class="seg" role="group" aria-label="Prikaz lokacije na mapi">
+        <button type="button" id="bExact" aria-pressed="false">Tačna tačka</button>
+        <button type="button" id="bApprox" aria-pressed="true">Približno mesto</button>
+      </div>
+      <div class="checks">
+        <div><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg><span>Objave se automatski proveravaju, a svako može da prijavi neprimeren sadržaj.</span></div>
+        <div><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg><span>Kad blokiraš nekog, ne vidite jedno drugom objave, priče, slike ni poruke.</span></div>
+        <div><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg><span>Bez reklama. Tvoji podaci se ne prodaju. Nalog brišeš kad hoćeš.</span></div>
+      </div>
+    </div>
+    <div class="demo approx" id="demo" role="img" aria-label="Mapa: kupci vide približno mesto, krug od oko 100 metara">
+      <svg class="bg" viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <path d="M-20 300 C 80 250 160 330 260 280 S 380 200 440 230" stroke="#0E1A22" stroke-width="46" fill="none"/>
+        <rect x="30" y="40" width="110" height="80" rx="12" fill="#18241A"/><rect x="250" y="70" width="120" height="70" rx="12" fill="#18241A"/>
+        <g stroke="#2A3326" stroke-width="12" stroke-linecap="round" fill="none"><path d="M-20 170 L420 150"/><path d="M130 -20 L160 420"/><path d="M290 -20 L260 420"/></g>
+        <g stroke="#232B21" stroke-width="5" fill="none"><path d="M-20 70 L420 50"/><path d="M210 -20 L215 420"/><path d="M-20 230 L420 215"/></g>
       </svg>
+      <div class="zone"></div>
+      <div class="pin exact" style="--c:var(--prodaja)"><span class="halo" style="animation:none;opacity:0"></span><span class="body"></span></div>
+      <div class="lbl" id="dLbl">Prodaja · Dečji bicikl, 20"<small>Kupci vide približno mesto, oko 100 m.</small></div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- HOW IT WORKS -->
-  <section class="how" id="kako-radi">
-    <div class="wrap">
-      <div class="section-head">
-        <span class="eyebrow">POČETAK</span>
-        <h2>Tri koraka do tvog komšiluka</h2>
-        <p>Bez dugih registracija i beskonačnih formulara. Za manje od dva minuta si u svom naselju.</p>
-      </div>
-      <div class="steps">
-        <div class="step">
-          <span class="num">01</span>
-          <h3>Preuzmi aplikaciju</h3>
-          <p>Besplatno je i dostupno na Google Play-u. iOS verzija stiže uskoro.</p>
-        </div>
-        <div class="step">
-          <span class="num">02</span>
-          <h3>Pronađi svoj kraj</h3>
-          <p>Podesi lokaciju i vidiš samo ono što se dešava u tvom naselju — ne u celoj Srbiji.</p>
-        </div>
-        <div class="step">
-          <span class="num">03</span>
-          <h3>Poveži se sa komšijama</h3>
-          <p>Zamoli za pomoć, prodaj nešto, upoznaj ljude ili samo vidi šta se dešava u kraju.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FEATURES -->
-  <section class="features" id="sta-nudi">
-    <div class="wrap">
-      <div class="section-head">
-        <span class="eyebrow">ŠTA MOŽEŠ DA RADIŠ</span>
-        <h2>Sve što ti treba od komšiluka</h2>
-        <p>Pet kategorija, jedan komšiluk. Bez pretrage kroz grupe punih stranaca sa druge strane grada.</p>
-      </div>
-      <div class="feature-grid">
-        <div class="feature-card">
-          <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8Z"/></svg></div>
-          <h3>Pomoć</h3>
-          <p>Treba ti bušilica, neko da prošeta psa ili prevoz do apoteke? Zamoli komšiluk.</p>
-        </div>
-        <div class="feature-card">
-          <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></div>
-          <h3>Prodaja</h3>
-          <p>Prodaj ili kupi od nekog ko živi pet minuta od tebe — bez slanja po pošti.</p>
-        </div>
-        <div class="feature-card">
-          <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-          <h3>Druženje</h3>
-          <p>Pronađi ljude sa sličnim interesovanjima u tvom naselju za kafu, šetnju ili igru.</p>
-        </div>
-        <div class="feature-card plus18">
-          <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8Z"/></svg></div>
-          <h3>Upoznavanje <span class="tag18">18+</span></h3>
-          <p>Upoznaj nekog novog iz svog kraja — jer je lakše kad se već krećete istim ulicama.</p>
-        </div>
-        <div class="feature-card">
-          <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
-          <h3>Posao i usluge</h3>
-          <p>Ponudi svoje usluge ili nađi majstora, instruktora ili pomoć iz svog naselja.</p>
-        </div>
-        <div class="feature-card">
-          <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 6v16l7-4 8 4 7-4V2l-7 4-8-4Z"/><path d="M8 2v16"/><path d="M16 6v16"/></svg></div>
-          <h3>Mapa komšiluka</h3>
-          <p>Vidi na mapi šta se dešava oko tebe, u realnom vremenu, dok se krećeš kroz naselje.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- MAP SHOWCASE -->
-  <section class="map-section">
-    <div class="wrap map-grid">
+<section class="cta" id="preuzmi">
+  <div class="wrap">
+    <div class="cta-box rise">
+      <div class="rings" aria-hidden="true"><i></i><i></i><i></i></div>
       <div>
-        <span class="eyebrow on-dark">UŽIVO</span>
-        <h2>Vidi svoj komšiluk kao nikad pre</h2>
-        <p>Umesto beskonačnog feed-a, Moj Komšiluk ti pokazuje šta se dešava tačno tamo gde jesi — na mapi, u realnom vremenu.</p>
-        <ul class="map-feature-list">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Objave i priče prikazane po lokaciji, ne po slučajnom redosledu</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Filtriraj po udaljenosti — 300m, 500m ili šire</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Tvoja tačna adresa nikad nije javno vidljiva</li>
-        </ul>
-      </div>
-      <div class="map-art">
-        <svg viewBox="0 0 460 380" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect x="10" y="10" width="440" height="360" rx="24" fill="#153729" stroke="#2A5A46" stroke-width="2"/>
-          <g opacity="0.5" stroke="#2A5A46" stroke-width="1.5">
-            <path d="M10 100 H450"/><path d="M10 190 H450"/><path d="M10 280 H450"/>
-            <path d="M120 10 V370"/><path d="M230 10 V370"/><path d="M340 10 V370"/>
-          </g>
-          <circle cx="230" cy="190" r="60" fill="#3C9D5E" opacity="0.15"/>
-          <circle cx="230" cy="190" r="34" fill="#3C9D5E" opacity="0.25"/>
-          <circle cx="230" cy="190" r="10" fill="#4CB56F"/>
-          <circle cx="230" cy="190" r="10" fill="none" stroke="#8FE0AA" stroke-width="2"/>
-
-          <g>
-            <circle cx="150" cy="120" r="7" fill="#C4633B"/>
-            <circle cx="330" cy="140" r="7" fill="#C4633B"/>
-            <circle cx="300" cy="260" r="7" fill="#C4633B"/>
-            <circle cx="140" cy="270" r="7" fill="#C4633B"/>
-            <circle cx="360" cy="220" r="7" fill="#FAF6EE"/>
-          </g>
-        </svg>
-      </div>
-    </div>
-  </section>
-
-  <!-- SAFETY -->
-  <section class="safety" id="bezbednost">
-    <div class="wrap safety-grid">
-      <div>
-        <span class="eyebrow">POVERENJE</span>
-        <h2>Tvoja bezbednost je uslov, ne dodatak</h2>
-        <div class="safety-list">
-          <div class="safety-item">
-            <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-11V5l-8-3-8 3v6c0 7 8 11 8 11Z"/></svg></div>
-            <div><h3>Adresa ostaje privatna</h3><p>Deliš samo približnu lokaciju, nikad tačnu adresu javno.</p></div>
-          </div>
-          <div class="safety-item">
-            <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m4.9 4.9 14.2 14.2"/></svg></div>
-            <div><h3>Prijavi i blokiraj u dva tapa</h3><p>Svaki profil i objava mogu da se prijave direktno iz aplikacije.</p></div>
-          </div>
-          <div class="safety-item">
-            <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg></div>
-            <div><h3>18+ za upoznavanje</h3><p>Deo za upoznavanje je jasno ograničen i odvojen od ostatka aplikacije.</p></div>
-          </div>
+        <img class="biglogo" src="/assets/logo-kvadrat.webp" alt="Ikonica aplikacije Moj Komšiluk">
+        <h2>Upoznaj ljude iz svog kraja.</h2>
+        <p class="l">Besplatno, bez reklama. Napravljeno u Srbiji, za komšije u Srbiji.</p>
+        <div class="stores">
+          <a class="store" href="https://apps.apple.com/rs/app/id6801029899"><svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.4 12.6c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.2-2.8.8-3.5.8s-1.8-.8-3-.8c-1.6 0-3 .9-3.8 2.3-1.6 2.8-.4 7 1.2 9.2.8 1.1 1.7 2.3 2.9 2.3 1.2 0 1.6-.7 3-.7s1.8.7 3 .7c1.3 0 2.1-1.1 2.8-2.2.9-1.3 1.3-2.5 1.3-2.6 0 0-2.5-1-2.5-3.7zM14.1 5.8c.6-.8 1.1-1.8 1-2.8-.9 0-2 .6-2.7 1.4-.6.7-1.1 1.7-1 2.7 1 .1 2.1-.5 2.7-1.3z"/></svg><span><small>Preuzmi na</small><strong>App Store</strong></span></a>
+          <a class="store" href="https://play.google.com/store/apps/details?id=com.mojkomsiluk.app"><svg width="23" height="23" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 2.5 14.5 12 4 21.5c-.4-.2-.6-.6-.6-1.1V3.6c0-.5.2-.9.6-1.1zm11.6 10.6 2.6 2.4-11.5 6.6 8.9-9zm0-2.2-8.9-9 11.5 6.6-2.6 2.4zm3.9-1.6 2.3 1.3c.8.5.8 1.6 0 2.1l-2.3 1.3-2.8-2.4 2.8-2.3z"/></svg><span><small>Nabavi na</small><strong>Google Play</strong></span></a>
         </div>
       </div>
-
-      <div class="safety-note">
-        <span class="eyebrow">NAŠE OBEĆANJE</span>
-        <p>Ne prodajemo tvoje podatke trećim stranama. Ne pravimo detaljne profile na osnovu tvojih interesovanja radi oglašavanja. Tvoji podaci se koriste samo da bi aplikacija radila — ništa više.</p>
-        <a href="/privacy.html">Pročitaj celu politiku privatnosti →</a>
+      <!-- DONACIJE-ČEKA-LINK: kartica je sakrivena dok ne postoji pravi link za donacije.
+           Kad link postoji: upisati ga u href ispod i skinuti ovaj komentar (i red "kraj" ispod kartice).
+           Bez kartice desna kolona .cta-box ostaje prazna i u njoj se vide prstenovi; to je namerno.
+      <div class="donate">
+        <h3>Podrži razvoj</h3>
+        <p>Aplikaciju pravi jedan čovek iz Srbije. Ako ti pomaže, možeš da počastiš kafu.</p>
+        <a href="UPISATI-LINK-ZA-DONACIJE"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9h13v5a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5zM17 10h1.5a2.5 2.5 0 0 1 0 5H17M8 3v3M12 3v3"/></svg>Počasti kafu</a>
       </div>
+      DONACIJE-ČEKA-LINK (kraj) -->
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- FAQ -->
-  <section class="faq" id="pitanja">
-    <div class="wrap" style="padding:0;">
-      <div class="section-head" style="margin-bottom:8px;">
-        <span class="eyebrow">PITANJA</span>
-        <h2>Često postavljana pitanja</h2>
-      </div>
-
-      <details>
-        <summary>Da li je Moj Komšiluk besplatan? <span class="plus"></span></summary>
-        <p class="answer">Da, preuzimanje i korišćenje aplikacije je potpuno besplatno.</p>
-      </details>
-      <details>
-        <summary>Kada izlazi iOS verzija? <span class="plus"></span></summary>
-        <p class="answer">Radimo na tome. Prijavi svoj mejl na dnu stranice i javićemo ti se čim bude spremna.</p>
-      </details>
-      <details>
-        <summary>Da li aplikacija radi u mom gradu? <span class="plus"></span></summary>
-        <p class="answer">Moj Komšiluk radi svuda gde ima korisnika — što nas više preuzme u tvom naselju, to je iskustvo bolje. Trenutno je najaktivnija u većim gradovima, ali raste svakim danom.</p>
-      </details>
-      <details>
-        <summary>Da li neko može da vidi moju tačnu adresu? <span class="plus"></span></summary>
-        <p class="answer">Ne. Tvoja lokacija se prikazuje približno, nikad kao tačna adresa vidljiva drugim korisnicima.</p>
-      </details>
-      <details>
-        <summary>Kako da obrišem nalog? <span class="plus"></span></summary>
-        <p class="answer">Nalog možeš da obrišeš direktno iz podešavanja u aplikaciji, ili preko naše <a href="/delete-account.html" style="color:var(--forest); font-weight:600;">stranice za brisanje naloga</a>.</p>
-      </details>
-    </div>
-  </section>
-
-  <!-- FINAL CTA -->
-  <section class="final-cta">
-    <span class="eyebrow on-dark">SPREMAN/SPREMNA?</span>
-    <h2>Tvoj komšiluk te čeka</h2>
-    <p>Preuzmi Moj Komšiluk i vidi šta se dešava tačno tamo gde živiš.</p>
-    <div class="cta-row">
-      <a class="play-badge" href="https://play.google.com/store/apps/details?id=com.mojkomsiluk.app" aria-label="Preuzmi na Google Play">
-        <!-- Bedž se servira SA OVOG sajta, ne sa play.google.com.
-             Hotlink bi na svako učitavanje poslao IP i User-Agent posetioca
-             Google-u — a ovo je sajt koji nosi Politiku privatnosti, u kojoj
-             Google stoji kao obrađivač SAMO za isporuku obaveštenja. Lokalna
-             kopija ne otvara tok podataka koji Politika ne pominje. -->
-        <img src="/assets/google-play-badge.png" alt="Preuzmi na Google Play" width="646" height="250">
-      </a>
-      <a class="store-badge" href="https://apps.apple.com/rs/app/id6801029899" aria-label="Preuzmi na App Store">
-        <img src="/assets/app-store-badge.svg" alt="Preuzmi na App Store" width="120" height="40">
-      </a>
-    </div>
-  </section>
-
+<section class="faq" id="pitanja">
+  <div class="wrap"><div class="faq-in">
+    <h2 class="rise">Česta pitanja</h2>
+    <details open><summary>Da li je aplikacija besplatna?<span class="pl" aria-hidden="true">+</span></summary><p>Da. Preuzimanje i korišćenje su besplatni, bez reklama.</p></details>
+    <details><summary>Da li komšije vide gde stanujem?<span class="pl" aria-hidden="true">+</span></summary><p>Aplikacija ne prikazuje tvoju adresu. Za prodaju, oglase, druženje i obaveštenja vidi se samo približno mesto, oko 100 m. Tačna tačka se vidi kod pomoći, kontrole i događaja, jer tada ljudi treba da znaju gde da dođu.</p></details>
+    <details><summary>Kako se proveravaju objave?<span class="pl" aria-hidden="true">+</span></summary><p>Objave, oglasi i komentari se automatski proveravaju odmah posle objavljivanja, a sporni se sklanjaju. Svako može da prijavi neprimeren sadržaj ili da blokira osobu.</p></details>
+    <details><summary>Kako da obrišem nalog?<span class="pl" aria-hidden="true">+</span></summary><p>U aplikaciji: Profil, pa Podešavanja, pa Obriši nalog. Može i preko stranice <a href="/delete-account.html">Brisanje naloga</a>. Brišu se tvoj nalog, objave, slike i poruke koje si poslao; izuzeci su opisani u <a href="/privacy.html">Politici privatnosti</a>.</p></details>
+    <details><summary>Gde radi aplikacija?<span class="pl" aria-hidden="true">+</span></summary><p>Za sada u Srbiji, na iPhone-u i Android telefonima.</p></details>
+  </div></div>
+</section>
 </main>
 
 <footer>
   <div class="wrap">
-    <div class="footer-grid">
-      <div>
-        <div class="footer-logo">
-          <img src="/assets/logo-icon.png" alt="Moj Komšiluk logo" style="width:24px; height:24px; border-radius:50%;">
-          Moj Komšiluk
-        </div>
-        <p style="font-size:14px; max-width:28ch; color:#8FAE9E;">Aplikacija koja povezuje ljude iz istog naselja.</p>
-      </div>
-      <div class="footer-col">
-        <h4>Aplikacija</h4>
-        <ul>
-          <li><a href="#kako-radi">Kako radi</a></li>
-          <li><a href="#sta-nudi">Šta nudi</a></li>
-          <li><a href="#bezbednost">Bezbednost</a></li>
-          <li><a href="https://play.google.com/store/apps/details?id=com.mojkomsiluk.app">Preuzmi na Google Play</a></li>
-          <li><a href="https://apps.apple.com/rs/app/id6801029899">Preuzmi na App Store</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Pravno</h4>
-        <ul>
-          <li><a href="/privacy.html">Politika privatnosti</a></li>
-          <li><a href="/terms.html">Uslovi korišćenja</a></li>
-          <li><a href="/delete-account.html">Brisanje naloga</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Kontakt</h4>
-        <ul>
-          <li><a href="mailto:podrska@mojkomsiluk.com">podrska@mojkomsiluk.com</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>© 2026 Moj Komšiluk. Sva prava zadržana.</p>
-      <p>Napravljeno u Srbiji 🇷🇸</p>
-    </div>
+    <div class="b"><img src="/assets/logo-kvadrat.webp" alt="">Moj Komšiluk</div>
+    <div><h4>Pravno</h4><a href="/privacy.html">Politika privatnosti</a><a href="/terms.html">Uslovi korišćenja</a><a href="/delete-account.html">Brisanje naloga</a></div>
+    <div><h4>Pomoć</h4><a href="#pitanja">Česta pitanja</a><a href="mailto:podrska@mojkomsiluk.com">podrska@mojkomsiluk.com</a></div>
+    <p class="fine">© 2026 Vasilije Anastasijević · Mapa: © Stadia Maps © OpenMapTiles © OpenStreetMap</p>
   </div>
 </footer>
 
+<script>
+(function(){
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const CIRC = "/assets/logo-krug.webp";
+
+/* ---------- ilustracije (umesto fotografija) ---------- */
+function ill(k){
+  const S = (inner,bg) => `<svg viewBox="0 0 200 250" preserveAspectRatio="xMidYMid slice" width="100%" height="100%" aria-hidden="true"><defs>${bg}</defs>${inner}</svg>`;
+  switch(k){
+    case 'park': return S(`<rect width="200" height="250" fill="url(#sk1)"/><circle cx="140" cy="92" r="26" fill="#FFD48A"/><path d="M0 170 Q60 140 120 165 T200 155 V250 H0z" fill="#3E6B2A"/><path d="M0 195 Q70 175 130 195 T200 190 V250 H0z" fill="#2D5320"/><g fill="#1F3D17"><circle cx="40" cy="150" r="24"/><circle cx="62" cy="140" r="20"/><rect x="47" y="155" width="6" height="34"/></g><rect x="110" y="196" width="56" height="6" rx="2" fill="#7A4E2D"/><rect x="114" y="202" width="4" height="14" fill="#5A3820"/><rect x="158" y="202" width="4" height="14" fill="#5A3820"/><rect x="110" y="184" width="56" height="5" rx="2" fill="#8B5A34"/>`,`<linearGradient id="sk1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F59E63"/><stop offset=".6" stop-color="#F7C78A"/><stop offset="1" stop-color="#E9D9A6"/></linearGradient>`);
+    case 'bike': return S(`<rect width="200" height="250" fill="url(#bk)"/><g fill="none" stroke="#1D2B14" stroke-width="7"><circle cx="58" cy="165" r="36"/><circle cx="148" cy="165" r="36"/></g><g fill="none" stroke="#C2410C" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"><path d="M58 165 L92 112 L130 112 L148 165 M92 112 L108 165 L130 112 M58 165 L108 165"/><path d="M86 100 h18 M126 100 l8 12"/></g><circle cx="108" cy="165" r="6" fill="#1D2B14"/>`,`<linearGradient id="bk" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#DCE8D0"/><stop offset="1" stop-color="#B9CFA8"/></linearGradient>`);
+    case 'coffee': return S(`<rect width="200" height="250" fill="url(#cf)"/><ellipse cx="100" cy="190" rx="70" ry="14" fill="#5A3A22" opacity=".35"/><path d="M56 110 h84 l-8 74 a14 14 0 0 1-14 12 h-40 a14 14 0 0 1-14-12z" fill="#FFF8EE"/><path d="M140 124 h12 a16 16 0 0 1 0 32 h-14" fill="none" stroke="#FFF8EE" stroke-width="9"/><ellipse cx="98" cy="112" rx="42" ry="8" fill="#6B3E20"/><g stroke="#FFF8EE" stroke-width="5" stroke-linecap="round" fill="none" opacity=".75"><path d="M84 92 q-8-12 0-24"/><path d="M102 88 q-8-14 0-28"/><path d="M120 92 q-8-12 0-24"/></g>`,`<linearGradient id="cf" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#C98B55"/><stop offset="1" stop-color="#8A5530"/></linearGradient>`);
+    case 'blok': return S(`<rect width="200" height="250" fill="url(#bl)"/><circle cx="160" cy="54" r="12" fill="#F6E7B0"/><g fill="#1B2430"><rect x="8" y="80" width="54" height="170"/><rect x="70" y="40" width="60" height="210"/><rect x="138" y="100" width="58" height="150"/></g><g fill="#FFC861">${Array.from({length:42},(_,i)=>{const c=i%3,r=Math.floor(i/3);const xs=[[16,30,44],[78,96,114],[146,162,178]][c%3];const x=xs[i%3];const y=[92,52,112][c]+r*12;return Math.random()>.45&&y<240?`<rect x="${x}" y="${y}" width="8" height="6" opacity="${(.5+Math.random()*.5).toFixed(2)}"/>`:''}).join('')}</g>`,`<linearGradient id="bl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#26355A"/><stop offset=".7" stop-color="#6B5B8C"/><stop offset="1" stop-color="#E08E6D"/></linearGradient>`);
+    case 'hoops': return S(`<rect width="200" height="250" fill="url(#hp)"/><rect x="0" y="170" width="200" height="80" fill="#C4683A"/><g stroke="#F3E2CF" stroke-width="3" fill="none"><path d="M0 200 H200"/><circle cx="100" cy="250" r="40"/></g><rect x="92" y="40" width="6" height="140" fill="#2B2B2B"/><rect x="62" y="40" width="66" height="44" rx="4" fill="#F7F4EE" stroke="#2B2B2B" stroke-width="3"/><path d="M84 84 h28 l-4 22 h-20z" fill="none" stroke="#F7F4EE" stroke-width="2"/><circle cx="148" cy="120" r="18" fill="#E87A2E"/><path d="M130 120 h36 M148 102 v36" stroke="#7A3A12" stroke-width="2"/>`,`<linearGradient id="hp" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8EC5F2"/><stop offset="1" stop-color="#D9ECF8"/></linearGradient>`);
+    case 'shelf': return S(`<rect width="200" height="250" fill="#E8DCCB"/><g fill="#9A6B43"><rect x="40" y="40" width="10" height="190"/><rect x="150" y="40" width="10" height="190"/><rect x="40" y="80" width="120" height="8"/><rect x="40" y="140" width="120" height="8"/><rect x="40" y="200" width="120" height="8"/></g><g><rect x="56" y="50" width="12" height="30" fill="#3B6D11"/><rect x="70" y="56" width="10" height="24" fill="#C2410C"/><rect x="82" y="52" width="14" height="28" fill="#24408F"/><rect x="120" y="112" width="26" height="28" rx="12" fill="#5AA9F5"/><rect x="58" y="116" width="10" height="24" fill="#F2B544"/><rect x="70" y="110" width="12" height="30" fill="#7C3AED"/></g>`,'');
+    case 'lamp': return S(`<rect width="200" height="250" fill="url(#lm)"/><ellipse cx="100" cy="226" rx="44" ry="8" fill="#000" opacity=".25"/><rect x="96" y="96" width="8" height="126" fill="#2B2B2B"/><rect x="70" y="214" width="60" height="10" rx="5" fill="#2B2B2B"/><path d="M58 104 L80 46 H120 L142 104z" fill="#F2B544"/><path d="M58 104 L142 104 L170 250 L30 250z" fill="#FFE7A3" opacity=".35"/>`,`<linearGradient id="lm" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3A2F4F"/><stop offset="1" stop-color="#6E5A7E"/></linearGradient>`);
+    case 'stroller': return S(`<rect width="200" height="250" fill="#F1E6EA"/><path d="M50 90 a60 60 0 0 1 60 60 H50z" fill="#E59AB0"/><path d="M50 150 H150 l-10 30 H60z" fill="#C9708C"/><path d="M150 150 l20-50" stroke="#2B2B2B" stroke-width="6" stroke-linecap="round"/><g fill="none" stroke="#2B2B2B" stroke-width="6"><circle cx="72" cy="200" r="16"/><circle cx="130" cy="200" r="16"/></g>`,'');
+    case 'flower': return S(`<rect width="200" height="250" fill="url(#fl)"/>${[[60,90,'#9B7BE0'],[140,70,'#F2B544'],[100,150,'#F2676B'],[40,180,'#F7F4EE'],[160,170,'#9B7BE0']].map(([x,y,c])=>`<g transform="translate(${x} ${y})"><path d="M0 0 V80" stroke="#2D5320" stroke-width="4"/>${[0,72,144,216,288].map(a=>`<ellipse rx="9" ry="16" cy="-14" fill="${c}" transform="rotate(${a})"/>`).join('')}<circle r="7" fill="#FFD48A"/></g>`).join('')}`,`<linearGradient id="fl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#A8D5A0"/><stop offset="1" stop-color="#4E8A3E"/></linearGradient>`);
+    case 'river': return S(`<rect width="200" height="250" fill="url(#rv)"/><circle cx="60" cy="80" r="22" fill="#FFE0A8"/><path d="M0 150 H200 V250 H0z" fill="#3E5E7A"/><g stroke="#FFE0A8" stroke-width="3" opacity=".6"><path d="M40 170 h30 M110 185 h40 M60 205 h24"/></g><path d="M0 150 C40 120 70 120 100 150 C130 120 160 120 200 150" fill="none" stroke="#1B2430" stroke-width="7"/><g stroke="#1B2430" stroke-width="3">${[20,40,60,80,120,140,160,180].map(x=>`<path d="M${x} ${150-Math.round(28*Math.sin(Math.PI*((x%100)/100)))} V150"/>`).join('')}</g>`,`<linearGradient id="rv" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F08A5D"/><stop offset=".55" stop-color="#F7C08A"/><stop offset=".56" stop-color="#3E5E7A"/></linearGradient>`);
+    default: return S(`<rect width="200" height="250" fill="#2A3326"/>`,'');
+  }
+}
+let gid=0; const uniq = s => { gid++; return s.replace(/id="(\w+)"/g,(m,a)=>`id="${a}${gid}"`).replace(/url\(#(\w+)\)/g,(m,a)=>`url(#${a}${gid})`); };
+const I = k => uniq(ill(k));
+const avc = ['#C2410C','#1D6FD8','#B7791F','#7C3AED','#0F766E','#7A8B6F'];
+
+/* ---------- mapa ---------- */
+const mapBg = `<svg class="bg" viewBox="0 0 360 640" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+<rect width="360" height="640" fill="#151A14"/>
+<path d="M-40 230 C 60 200 120 300 210 280 S 330 170 420 210" stroke="#0E1A22" stroke-width="60" fill="none"/>
+<path d="M-40 470 C 80 430 160 520 260 480 S 380 420 420 440" stroke="#0E1A22" stroke-width="38" fill="none"/>
+<g fill="#1A2718"><rect x="30" y="90" width="90" height="60" rx="10"/><rect x="220" y="360" width="110" height="80" rx="10"/><rect x="40" y="540" width="120" height="60" rx="10"/></g>
+<g stroke="#2B3427" stroke-width="9" stroke-linecap="round" fill="none"><path d="M-20 120 L380 90"/><path d="M-20 380 L380 350"/><path d="M110 -20 L140 660"/><path d="M260 -20 L235 660"/><path d="M-20 580 L380 560"/></g>
+<g stroke="#20281E" stroke-width="3.5" fill="none"><path d="M-20 40 L380 30"/><path d="M-20 300 L380 320"/><path d="M60 -20 L70 660"/><path d="M190 -20 L190 660"/><path d="M320 -20 L310 660"/><path d="M-20 520 L380 500"/></g>
+</svg>`;
+function pinHTML(p){
+  if(p.me) return `<span class="me-dot" style="left:${p.x}%;top:${p.y}%"></span>`;
+  const cls = p.k==='help'?'pin help':p.k==='patrol'?'pin patrol':'pin';
+  const body = p.k==='patrol' ? `<span class="body"><svg width="18" height="18" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M12 3 5 6v5c0 4.5 3 8 7 10 4-2 7-5.5 7-10V6z"/></svg></span>` : `<span class="body"></span>`;
+  return `<div class="${cls}" style="left:${p.x}%;top:${p.y}%;--c:${p.c};--d:${p.d}s"><span class="halo"></span>${body}</div>`;
+}
+function mapScreen(withSheet){
+  const pins=[{x:22,y:24,c:'#B38A4A',d:.3},{x:55,y:36,c:'var(--pomoc)',d:.7,k:'help'},{x:28,y:58,c:'var(--prodaja)',d:1.1},{x:63,y:54,c:'var(--kontrola)',d:1.5,k:'patrol'},{x:78,y:72,c:'var(--druzenje)',d:1.9},{x:40,y:80,c:'var(--obav)',d:2.3},{x:10,y:47,me:1}];
+  return `${mapBg}<div class="chips-row" aria-hidden="true"><span class="on">Sve</span><span>Pomoć</span><span>Prodaja</span><span>Druženje</span></div>${pins.map(pinHTML).join('')}${withSheet?`<div class="sheet"><span class="th">${I('bike')}</span><span><b>Dečji bicikl, 20"</b><small><i></i>Prodaja · oko 300 m</small></span></div>`:''}`;
+}
+document.getElementById('heroMap').innerHTML = mapScreen(true);
+
+/* ---------- rotirajuća reč ---------- */
+const words=[...document.querySelectorAll('#rot span')]; let wi=0;
+if(!reduce) setInterval(()=>{const a=words[wi];wi=(wi+1)%words.length;const b=words[wi];a.classList.remove('on');a.classList.add('out');b.classList.remove('out');b.classList.add('on');setTimeout(()=>a.classList.remove('out'),800);},2300);
+
+/* ---------- nagib telefona ---------- */
+const stage=document.getElementById('stage'), dev=document.getElementById('device');
+if(!reduce && matchMedia('(pointer:fine)').matches){
+  dev.style.transform='rotateY(-12deg) rotateX(6deg)';
+  addEventListener('pointermove',e=>{const r=stage.getBoundingClientRect();const x=(e.clientX-(r.left+r.width/2))/innerWidth, y=(e.clientY-(r.top+r.height/2))/innerHeight;dev.style.transform=`rotateY(${-12+x*18}deg) rotateX(${6-y*12}deg)`;});
+}
+
+/* ---------- traka ---------- */
+const tk=[['Ana prodaje policu za knjige'],['Kontrola kod škole, potvrdilo 4'],['Ko je za basket u nedelju?'],['Nestala struja u ulazu 3'],['Treba mi bušilica na sat'],['Kafa u parku u subotu'],['Poklanjam dečju garderobu']];
+const one=tk.map(([t])=>`<span><img src="${CIRC}" alt="">${t}</span>`).join('');
+document.getElementById('ticker').innerHTML=one+one;
+
+/* ---------- vrste objava ---------- */
+const K=[
+ {c:'var(--pomoc)',h:'Pomoć',p:'Nošenje, pozajmica alata, pas koji je pobegao. Komšije u blizini dobiju obaveštenje čim objava prođe proveru.',n:'Obaveštenje u krugu od 500 m',i:'<path d="M12 20s-7-4.4-9.2-8.6C1.2 8.2 3 4.5 6.6 4.5c2.1 0 3.5 1.2 5.4 3.3 1.9-2.1 3.3-3.3 5.4-3.3 3.6 0 5.4 3.7 3.8 6.9C19 15.6 12 20 12 20z"/>'},
+ {c:'var(--prodaja)',h:'Prodaja',p:'Stvari koje ti ne trebaju, a nekome iz kraja trebaju. Preuzimanje na par minuta od kuće.',n:'Vidi se približno mesto',i:'<path d="M5 8h14l-1.3 12H6.3zM9 8V6a3 3 0 0 1 6 0v2"/>'},
+ {c:'var(--druzenje)',h:'Druženje',p:'Kafa, šetnja, basket, igraonica za decu. Nađi društvo bez grupa od 500 ljudi.',n:'Vidi se približno mesto',i:'<path d="M12 3l1.8 4.6L18 9l-4.2 1.4L12 15l-1.8-4.6L6 9l4.2-1.4z"/><path d="M18 14l.8 2 2 .8-2 .8-.8 2-.8-2-2-.8 2-.8z"/>'},
+ {c:'var(--obav)',h:'Obaveštenje',p:'Nestala voda, radovi na ulici, izgubljen ključ. Sve što kraj treba da zna.',n:'Na Početnoj i na mapi',i:'<path d="M4 10v4h3l6 4V6L7 10zM16 9a4 4 0 0 1 0 6M7 14l1.5 5h2.5l-1-5"/>'},
+ {c:'var(--kontrola)',h:'Kontrola',p:'Javi gde je kontrola na putu. Drugi potvrđuju da li je još tu, a dojava sama nestaje.',n:'Nestaje najkasnije za 4 sata',i:'<path d="M12 3 5 6v5c0 4.5 3 8 7 10 4-2 7-5.5 7-10V6z"/>'}
+];
+document.getElementById('kinds').innerHTML=K.map(k=>`<article class="k rise" style="--c:${k.c}"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${k.i}</svg><h3>${k.h}</h3><p>${k.p}</p><span class="note">${k.n}</span></article>`).join('');
+
+/* ---------- ekrani aplikacije ---------- */
+const top=(t,extra='')=>`<div class="app-top">${t}${extra}</div>`;
+const tab=on=>`<div class="tabbar" aria-hidden="true">${[0,1,2,3,4].map(i=>`<span class="${i===on?'on':''}"></span>`).join('')}<span class="me"></span></div>`;
+const heartI='<svg class="heart" viewBox="0 0 24 24" fill="currentColor"><path d="M12 20s-7-4.4-9.2-8.6C1.2 8.2 3 4.5 6.6 4.5c2.1 0 3.5 1.2 5.4 3.3 1.9-2.1 3.3-3.3 5.4-3.3 3.6 0 5.4 3.7 3.8 6.9C19 15.6 12 20 12 20z"/></svg>';
+const icon=d=>`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">${d}</svg>`;
+const V = {
+ home: () => `${top(`<img src="/assets/logo-beli.png" alt="">Moj Komšiluk`,`<span class="sp"><span class="flame"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c1 3.5 5 6 5 11a5 5 0 0 1-10 0c0-2 1-3.5 2-4.5 0 2 1 3 2 3-1-3 0-6.5 1-9.5z"/></svg>12</span></span>`)}
+  <div class="feed">
+   <div class="stories">${[['Tvoja priča',null],['Ana','park'],['Jovan','river'],['Milica','flower'],['Stefan','hoops']].map(([n,k],i)=>`<div class="st"><b style="${i?'':'background:var(--surface2)'}"><i>${k?I(k):`<span style="display:block;width:100%;height:100%;background:url(${CIRC}) center/cover"></span>`}</i></b>${n}</div>`).join('')}</div>
+   <div class="pills"><span class="on">Sve</span><span>Pomoć</span><span>Prodaja</span><span>Druženje</span></div>
+   <div class="post">
+    <div class="h"><span class="av">${I('blok')}</span><span><b>Ana Kostić</b><small><i style="background:var(--druzenje)"></i>Druženje · oko 400 m</small></span></div>
+    <div class="ph">${I('park')}<span class="cnt">1/3</span></div>
+    <div class="acts">${heartI}${icon('<path d="M20.5 11.5a8.5 8.5 0 0 1-12.4 7.6L3.5 20.5l1.4-4.4A8.5 8.5 0 1 1 20.5 11.5z"/>')}${icon('<path d="M21.5 3 10.5 13.5M21.5 3 14.5 21l-4-7.5L3 9.5z"/>')}<span class="dots"><i class="on"></i><i></i><i></i></span>${icon('<path d="M6 3.5h12v17l-6-4.5-6 4.5z"/>')}</div>
+    <div class="likes"><span class="faces"><i style="background:${avc[1]}"></i><i style="background:${avc[2]}"></i><i style="background:${avc[3]}"></i></span>Marko i drugi kažu da im se sviđa</div>
+    <div class="cm"><b>Ana Kostić</b> Kafa u parku u subotu u 10, ko je za? ☀<br><b>Jovan</b> <span>Donosim kolače!</span></div>
+   </div>
+  </div>${tab(0)}`,
+ map: () => `${top('Mapa komšiluka')}<div class="map">${mapScreen(true)}</div>${tab(3)}`,
+ shop: () => `${top('Oglasi','<span class="sp">+ Prodaj</span>')}<div class="shop">${[['bike','9.500 din','Dečji bicikl, 20"','oko 300 m'],['shelf','3.000 din','Polica za knjige','oko 650 m'],['stroller','Poklanjam','Kolica za bebu','oko 1,1 km'],['lamp','1.200 din','Stona lampa','oko 900 m']].map(([k,c,t,d])=>`<div class="item"><div class="im">${I(k)}</div><div class="t"><b>${c}</b><span>${t}</span><small>${d}</small></div></div>`).join('')}</div>${tab(4)}`,
+ ev: () => `${top('Događaji','<span class="sp">+ Organizuj</span>')}<div class="ev"><div class="evc"><div class="im">${I('coffee')}<span class="date"><small>NOV</small><b>22</b></span></div><div class="t"><h4>Kafa u parku</h4><span>Subota · 10:00–12:00</span><span>Park Kalenić · oko 400 m</span><div class="row"><span>9 dolazi</span><span class="go">Dolazim</span></div></div></div><div class="evc"><div class="im" style="height:110px">${I('hoops')}<span class="date"><small>NOV</small><b>23</b></span></div><div class="t"><h4>Basket 3 na 3</h4><span>Nedelja · 17:00 · teren kod škole</span></div></div></div>${tab(1)}`,
+ prof: () => `${top('ana.kostic')}<div class="prof"><div class="hd"><span class="bigav" style="background:none;overflow:hidden">${I('blok')}</span><div class="stats"><span><b>24</b>U galeriji</span><span><b>118</b>Pratilaca</span><span><b>96</b>Prati</span></div></div><div class="nm">Ana Kostić <span class="flame"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c1 3.5 5 6 5 11a5 5 0 0 1-10 0c0-2 1-3.5 2-4.5 0 2 1 3 2 3-1-3 0-6.5 1-9.5z"/></svg>5</span></div><div class="int"><span>Interesovanja<br><span style="color:var(--muted)">3 zajednička</span></span><b>60%</b></div><div class="gal">${['park','river','flower','coffee','blok','hoops'].map(k=>`<div>${I(k)}</div>`).join('')}</div></div>${tab(5)}`
+};
+const ST=[
+ {v:'home',c:'var(--brand-hi)',n:'Početna',h:'Sve iz kraja, na jednom mestu.',p:'Priče komšija, prvo onih koje pratiš, objave iz okoline i ko se čemu obradovao. Bez algoritma koji ti gura ljude sa drugog kraja sveta.'},
+ {v:'map',c:'var(--kontrola)',n:'Mapa',h:'Vidi šta se dešava oko tebe.',p:'Pinovi u bojama: crveni za pomoć, plavo-crveni za kontrolu, koji trepće. Tapni pin i vidiš objavu.'},
+ {v:'shop',c:'var(--prodaja)',n:'Oglasi',h:'Kupi i prodaj u komšiluku.',p:'Polovna kolica, polica, bicikl. Javiš se porukom, dogovoriš preuzimanje i ne čekaš kurira.'},
+ {v:'ev',c:'var(--obav)',n:'Događaji',h:'Okupi ljude iz ulice.',p:'Napraviš događaj za minut. Komšije tapnu „Dolazim”, a ti vidiš ko dolazi.'},
+ {v:'prof',c:'var(--druzenje)',n:'Profil',h:'Upoznaj ko živi pored tebe.',p:'Galerija, interesovanja i procenat podudaranja. Nađeš komšiju koji isto voli basket, pse ili dobru kafu.'}
+];
+document.getElementById('views').innerHTML=ST.map((s,i)=>`<div class="view${i?'':' on'}">${V[s.v]()}</div>`).join('');
+document.getElementById('steps').innerHTML=ST.map((s,i)=>`<article class="step${i?'':' on'}" data-i="${i}" style="--c:${s.c}"><span class="num"><i></i>${String(i+1).padStart(2,'0')} · ${s.n}</span><h3>${s.h}</h3><p>${s.p}</p><div class="mini" aria-hidden="true"><div class="device"><div class="scr"><div class="view">${V[s.v]()}</div></div></div></div></article>`).join('');
+const steps=[...document.querySelectorAll('.step')], views=[...document.querySelectorAll('#views .view')];
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){const i=+e.target.dataset.i;steps.forEach((s,j)=>s.classList.toggle('on',j===i));views.forEach((v,j)=>v.classList.toggle('on',j===i));}}),{rootMargin:'-45% 0px -45% 0px'});
+steps.forEach(s=>io.observe(s));
+
+/* ---------- privatnost ---------- */
+const demo=document.getElementById('demo'),bE=document.getElementById('bExact'),bA=document.getElementById('bApprox'),lbl=document.getElementById('dLbl');
+function mode(a){demo.classList.toggle('approx',a);bA.setAttribute('aria-pressed',a);bE.setAttribute('aria-pressed',!a);
+ lbl.innerHTML=a?'Prodaja · Dečji bicikl, 20"<small>Kupci vide približno mesto, oko 100 m.</small>':'Pomoć · Nošenje frižidera<small>Za pomoć, kontrolu i događaje vidi se tačna tačka, da ljudi znaju gde da dođu.</small>';
+ demo.setAttribute('aria-label',a?'Mapa: kupci vide približno mesto, krug od oko 100 metara':'Mapa: tačna tačka objave za pomoć');}
+let auto=null; if(!reduce){let a=true;auto=setInterval(()=>{a=!a;mode(a);},3800);}
+[bE,bA].forEach(b=>b.addEventListener('click',()=>{if(auto){clearInterval(auto);auto=null;}mode(b===bA);}));
+})();
+</script>
 </body>
 </html>
